@@ -1,171 +1,198 @@
 # Moedertaal
 
-Moedertaal is an open-source programming language whose keywords can be written
-in the programmer's own human language. It includes Afrikaans, English, Chinese,
-Russian, Spanish, isiZulu, isiXhosa, and Sesotho.
+Moedertaal is a small beginner-friendly programming language with localized
+keywords. It supports Afrikaans, English, Chinese, Russian, Spanish, isiZulu,
+isiXhosa, and Sesotho. Source files use the `.mt` extension and UTF-8 encoding.
 
-```text
-stel naam = "Wêreld"
-sê "Hallo " + naam + "!"
-```
+## Install and Run
 
-```text
-set name = "World"
-say "Hello " + name + "!"
-```
-
-```text
-设置 名字 = "世界"
-说 "你好，" + 名字 + "！"
-```
-
-Moedertaal source files use the `.mt` extension and UTF-8 encoding.
-
-## Run a Program
-
-Node.js 20 or newer is required. No third-party packages are needed.
-
-```powershell
-node src/cli.js examples/afrikaans-v02.mt
-node src/cli.js examples/english-v02.mt
-node src/cli.js examples/chinese-v02.mt
-node src/cli.js examples/zulu-v02.mt
-node src/cli.js examples/xhosa-v02.mt
-node src/cli.js examples/sesotho-v02.mt
-node src/cli.js examples/spanish-v02.mt
-node src/cli.js examples/russian-v02.mt
-```
-
-Install the `moedertaal` command locally:
+Node.js 20 or newer is required.
 
 ```powershell
 npm install
 npm link
-moedertaal examples/afrikaans.mt
+moed run examples/calculator.mt
 ```
 
-## Language Guide
-
-### Values and arithmetic
-
-Afrikaans booleans are `waar`, `onwaar`, and `niks`. English uses `true`,
-`false`, and `nothing`; Chinese uses `真`, `假`, and `空`.
+The command-line runner provides:
 
 ```text
-stel totaal = (10 + 2) * 3
-stel gereed = totaal == 36 en nie onwaar
-sê gereed
+moed run file.mt
+moed check file.mt
+moed repl
+moed languages
 ```
 
-Operators: `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, and `>=`.
-Logical operators are localized: `en/of/nie`, `and/or/not`, and `且/或/非`.
+`run` executes a program and exits with code 1 on failure. `check` parses a
+program without executing it. `repl` opens a small interactive prompt; enter
+`:exit` to leave.
 
-### Decisions
+## Variables and Collections
+
+The universal `let` form works in every language:
 
 ```text
-as ouderdom >= 18
-  sê "Volwassene"
-anders
-  sê "Nog nie"
-einde
+let nums = [1, 2, 3]
+let user = { name: "Gideon", age: 40 }
+
+print(nums[0])
+print(user["name"])
+print(length(nums))
+
+push(nums, 4)
+for number in nums
+  print(number)
+end
 ```
 
-English uses `if/else/end`; Chinese uses `如果/否则/结束`.
+Arrays use zero-based indexes. Iterating over a map visits its keys.
+`length()` is an alias for `len()`.
 
-### Loops
-
-Repeat a fixed number of times:
+Localized assignment and output commands remain supported:
 
 ```text
-herhaal 3
-  sê teller
-einde
+stel naam = "Wêreld"
+sê "Hallo " + naam
 ```
 
-Loop through a list:
+## Records
+
+Records provide named fields without inheritance or class complexity:
 
 ```text
-vir kleur in ["rooi", "groen", "blou"]
-  sê kleur
-einde
+record Person {
+  name
+  age
+}
+
+let person = Person("Gideon", 40)
+print(person.name)
+print(person.age)
 ```
 
-English uses `repeat`, `counter`, and `for item in list`. Chinese uses `重复`,
-`次数`, and `对于 项目 在 列表`.
+Records are simple data values. They do not have methods, inheritance, or
+hidden constructors.
 
-### Functions
+## Standard Library
+
+The small built-in library includes:
 
 ```text
-funksie verdubbel(getal)
-  gee getal * 2
-einde
-
-sê verdubbel(5)
+print(value)
+input("Prompt: ")
+len(value)
+length(value)
+push(array, value)
+type(value)
+toText(value)
+toNumber(value)
+random()
+math.floor(number)
+math.round(number)
+readText(path)
+writeText(path, text)
 ```
 
-English uses `function/return/end`; Chinese uses `函数/返回/结束`.
+`random()` returns a number from 0 up to, but not including, 1.
 
-### Lists and maps
+## Safe File Access
+
+Programs may only read and write inside their sandbox folder. By default, this
+is a folder named `sandbox` beside the running `.mt` file.
 
 ```text
-stel kleure = ["rooi", "groen", "blou"]
-stel persoon = {"naam": "Amina", "aktief": waar}
-
-sê kleure[0]
-sê persoon["naam"]
+writeText("notes.txt", "Hello from Moedertaal")
+print(readText("notes.txt"))
 ```
 
-List indexes begin at zero. Looping over a map returns its keys.
-
-## Format a File
+Absolute paths and parent traversal such as `../secret.txt` are rejected. A
+custom sandbox can be selected:
 
 ```powershell
-node src/cli.js program.mt --format
+moed run program.mt --sandbox C:\MySafeFolder
 ```
 
-This applies consistent two-space indentation to blocks.
+The file-reading example uses this layout:
+
+```text
+examples/
+  read-file.mt
+  sandbox/
+    sample.txt
+```
+
+Run it with:
+
+```powershell
+moed run examples/read-file.mt
+```
+
+It calls `readText("sample.txt")` and prints the file contents.
+
+## Modules
+
+Import top-level functions or records from another `.mt` file:
+
+```text
+import "math"
+import "./tools/helpers.mt"
+
+print(double(6))
+```
+
+`import "math"` looks for `math.mt` beside the importing file. Relative paths
+are resolved from the file containing the import. Module variables stay
+private, modules load once, and circular imports are rejected.
+
+## Errors
+
+Syntax and runtime errors include the filename, line, column, and a helpful
+message:
+
+```text
+C:\project\broken.mt:3:18: I expected ']'.
+```
+
+## Examples
+
+```powershell
+moed run examples/calculator.mt
+moed run examples/guess-number.mt
+moed run examples/todo-list.mt
+moed run examples/bank-account.mt
+moed run examples/text-adventure.mt
+moed run examples/read-file.mt
+```
+
+The calculator, guessing game, and text adventure request keyboard input. The
+todo program demonstrates arrays, iteration, `push()`, and sandboxed file
+writing. The bank account demonstrates records.
 
 ## Browser Playground
-
-Start the local playground:
 
 ```powershell
 node playground/server.js
 ```
 
-Then open [http://127.0.0.1:8080](http://127.0.0.1:8080). It runs entirely on
-your computer and includes language selection, examples, execution, friendly
-errors, and formatting. Press `Ctrl+Enter` to run a program.
+Open [http://127.0.0.1:8080](http://127.0.0.1:8080). The browser playground
+supports language syntax, collections, records, and safe non-host built-ins.
+Keyboard input, modules, and filesystem access require the command-line runner.
 
 ## Visual Studio Code
 
-The extension source is in `editor/moedertaal-vscode`. It provides:
+The extension source is in `editor/moedertaal-vscode`. It provides `.mt` file
+recognition, syntax highlighting, and document formatting.
 
-- `.mt` file recognition
-- Syntax highlighting for all supported languages
-- Comment, bracket, and quote handling
-- **Format Document** support
+## Security Scope
 
-Build and install it:
+Moedertaal intentionally does not expose:
 
-```powershell
-cd editor/moedertaal-vscode
-npm install
-npm run package
-code --install-extension moedertaal-language-0.2.0.vsix
-```
-
-## Add a Language
-
-Language packs are JSON files in `languages`. A pack defines localized commands,
-values, logical operators, and error messages. Use `languages/en.json` as the
-complete reference and add a matching example and test.
-
-Translations should be reviewed by a fluent speaker. The words should feel
-natural in code rather than being blindly translated.
-
-The first Russian, Spanish, isiZulu, isiXhosa, and Sesotho packs are starter
-translations. Community review by fluent speakers is especially welcome.
+- networking
+- shell commands or process execution
+- unrestricted filesystem access
+- dynamic package installation
+- JavaScript evaluation
+- classes or inheritance
 
 ## Tests
 
@@ -173,11 +200,11 @@ translations. Community review by fluent speakers is especially welcome.
 node --test
 ```
 
-## Current Scope
+## Adding a Spoken Language
 
-Moedertaal 0.2 is intentionally a learning language. It has functions and local
-function variables, but not imports, classes, file access, networking, or
-package management yet. The runtime stops programs that execute too many steps.
+Language packs are JSON files in `languages`. Use `languages/en.json` as the
+reference and add an example and test. Translations should be reviewed by a
+fluent speaker and should feel natural when read aloud.
 
 ## License
 

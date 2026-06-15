@@ -37,7 +37,7 @@
       "patterns": [
         {
           "name": "keyword.control.moedertaal",
-          "match": "(?<![\\p{L}\\p{N}_])(?:sê|skryf|stel|as|anders|einde|herhaal|vir|in|funksie|gee|say|print|set|let|if|else|end|repeat|for|function|return|说|输出|设置|设|如果|否则|结束|重复|对于|在|函数|返回|скажи|печать|задать|если|иначе|конец|повторить|для|в|функция|вернуть|di|imprime|asigna|si|sino|fin|repite|para|en|función|devuelve|bhala|phrinta|beka|uma|kungenjalo|qeda|phinda|ngayinye|ku|umsebenzi|buyisa|shicilela|misela|ukuba|gqiba|nganye|kwi|bua|ngola|beha|haeba|ho_seng_jwalo|qetella|pheta|bakeng|ho|tshebetso|kgutlisa)(?![\\p{L}\\p{N}_])"
+          "match": "(?<![\\p{L}\\p{N}_])(?:import|record|let|sê|skryf|stel|as|anders|einde|herhaal|vir|in|funksie|gee|say|print|set|if|else|end|repeat|for|function|return|说|输出|设置|设|如果|否则|结束|重复|对于|在|函数|返回|скажи|печать|задать|если|иначе|конец|повторить|для|в|функция|вернуть|di|imprime|asigna|si|sino|fin|repite|para|en|función|devuelve|bhala|phrinta|beka|uma|kungenjalo|qeda|phinda|ngayinye|ku|umsebenzi|buyisa|shicilela|misela|ukuba|gqiba|nganye|kwi|bua|ngola|beha|haeba|ho_seng_jwalo|qetella|pheta|bakeng|ho|tshebetso|kgutlisa)(?![\\p{L}\\p{N}_])"
         },
         {
           "name": "keyword.operator.word.moedertaal",

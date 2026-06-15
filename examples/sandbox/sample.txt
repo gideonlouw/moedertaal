@@ -1,0 +1,2 @@
+This text was read safely from the examples sandbox.
+Moedertaal cannot read files outside this folder.

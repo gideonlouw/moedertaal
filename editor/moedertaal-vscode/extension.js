@@ -1,6 +1,7 @@
 const vscode = require("vscode");
 
 const openers = new Set([
+  "record",
   "as", "herhaal", "vir", "funksie",
   "if", "repeat", "for", "function",
   "如果", "重复", "对于", "函数",
@@ -14,7 +15,7 @@ const branches = new Set([
   "anders", "else", "否则", "иначе", "sino", "kungenjalo", "ho_seng_jwalo",
 ]);
 const endings = new Set([
-  "einde", "end", "结束", "конец", "fin", "qeda", "gqiba", "qetella",
+  "}", "einde", "end", "结束", "конец", "fin", "qeda", "gqiba", "qetella",
 ]);
 
 function format(text) {
