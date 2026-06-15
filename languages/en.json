@@ -1,0 +1,48 @@
+{
+  "code": "en",
+  "name": "English",
+  "keywords": {
+    "print": ["say", "print"],
+    "set": ["set", "let"],
+    "if": ["if"],
+    "else": ["else"],
+    "end": ["end"],
+    "repeat": ["repeat"],
+    "for": ["for"],
+    "in": ["in"],
+    "function": ["function"],
+    "return": ["return"]
+  },
+  "values": {
+    "true": ["true"],
+    "false": ["false"],
+    "nothing": ["nothing"],
+    "counter": ["counter"]
+  },
+  "operators": {
+    "and": ["and"],
+    "or": ["or"],
+    "not": ["not"]
+  },
+  "errors": {
+    "line": "Line {line}: {message}",
+    "unknownKeyword": "I do not know the keyword '{keyword}'.",
+    "missingValue": "'{keyword}' needs a value after it.",
+    "invalidSet": "Try: {keyword} name = value",
+    "unexpectedElse": "'{keyword}' needs a matching if block.",
+    "unexpectedEnd": "'{keyword}' does not close an open block.",
+    "missingEnd": "The '{keyword}' block needs an 'end'.",
+    "invalidFunction": "Try: {keyword} name(parameter1, parameter2)",
+    "invalidFor": "Try: {keyword} item {inKeyword} list",
+    "returnOutsideFunction": "'return' can only be used inside a function.",
+    "unknownVariable": "I cannot find a variable named '{name}'.",
+    "invalidCharacter": "I did not expect the character '{character}'.",
+    "expected": "I expected {expected}.",
+    "notCallable": "Only a function can be called with parentheses.",
+    "wrongArguments": "Function '{name}' expects {expected} values, but received {actual}.",
+    "divideByZero": "A number cannot be divided by zero.",
+    "invalidOperand": "The operator '{operator}' cannot be used with these values.",
+    "invalidIndex": "Only text, a list, or a map can use an index.",
+    "loopLimit": "The program stopped because it ran for too many steps."
+  }
+}

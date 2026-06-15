@@ -1,0 +1,34 @@
+{
+  "name": "moedertaal-language",
+  "displayName": "Moedertaal Language",
+  "description": "Syntax highlighting and formatting for Moedertaal .mt files.",
+  "version": "0.2.0",
+  "publisher": "moedertaal",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages", "Formatters"],
+  "activationEvents": ["onLanguage:moedertaal"],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "moedertaal",
+        "aliases": ["Moedertaal", "moedertaal"],
+        "extensions": [".mt"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "moedertaal",
+        "scopeName": "source.moedertaal",
+        "path": "./syntaxes/moedertaal.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "npx @vscode/vsce package"
+  },
+  "license": "MIT"
+}

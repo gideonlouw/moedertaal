@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Moedertaal",
+  "scopeName": "source.moedertaal",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#values" },
+    { "include": "#functions" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [{ "name": "comment.line.number-sign.moedertaal", "match": "#.*$" }]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.moedertaal",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [{ "name": "constant.character.escape.moedertaal", "match": "\\\\[nrt\\\\\"']" }]
+        },
+        {
+          "name": "string.quoted.single.moedertaal",
+          "begin": "'",
+          "end": "'",
+          "patterns": [{ "name": "constant.character.escape.moedertaal", "match": "\\\\[nrt\\\\\"']" }]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [{ "name": "constant.numeric.moedertaal", "match": "\\b\\d+(?:\\.\\d+)?\\b" }]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.moedertaal",
+          "match": "\\b(?:sê|skryf|stel|as|anders|einde|herhaal|vir|in|funksie|gee|say|print|set|let|if|else|end|repeat|for|function|return|说|输出|设置|设|如果|否则|结束|重复|对于|在|函数|返回)\\b"
+        },
+        {
+          "name": "keyword.operator.word.moedertaal",
+          "match": "\\b(?:en|of|nie|and|or|not|且|或|非)\\b"
+        }
+      ]
+    },
+    "values": {
+      "patterns": [
+        {
+          "name": "constant.language.moedertaal",
+          "match": "\\b(?:waar|onwaar|niks|true|false|nothing|真|假|空)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "match": "\\b(funksie|function|函数)\\s+([\\p{L}_][\\p{L}\\p{N}_]*)(?=\\s*\\()",
+          "captures": {
+            "1": { "name": "keyword.control.moedertaal" },
+            "2": { "name": "entity.name.function.moedertaal" }
+          }
+        }
+      ]
+    }
+  }
+}

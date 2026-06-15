@@ -1,0 +1,25 @@
+{
+  "name": "moedertaal-lang",
+  "version": "0.2.0",
+  "description": "A tiny programming language with localized keywords.",
+  "type": "module",
+  "bin": {
+    "moedertaal": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test",
+    "playground": "node playground/server.js"
+  },
+  "keywords": [
+    "programming-language",
+    "interpreter",
+    "localization",
+    "unicode",
+    "afrikaans"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

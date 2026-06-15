@@ -1,0 +1,48 @@
+{
+  "code": "af",
+  "name": "Afrikaans",
+  "keywords": {
+    "print": ["sê", "skryf"],
+    "set": ["stel"],
+    "if": ["as"],
+    "else": ["anders"],
+    "end": ["einde"],
+    "repeat": ["herhaal"],
+    "for": ["vir"],
+    "in": ["in"],
+    "function": ["funksie"],
+    "return": ["gee"]
+  },
+  "values": {
+    "true": ["waar"],
+    "false": ["onwaar"],
+    "nothing": ["niks"],
+    "counter": ["teller"]
+  },
+  "operators": {
+    "and": ["en"],
+    "or": ["of"],
+    "not": ["nie"]
+  },
+  "errors": {
+    "line": "Reël {line}: {message}",
+    "unknownKeyword": "Ek ken nie die sleutelwoord '{keyword}' nie.",
+    "missingValue": "'{keyword}' kort 'n waarde daarna.",
+    "invalidSet": "Probeer: {keyword} naam = waarde",
+    "unexpectedElse": "'{keyword}' kort 'n bypassende 'as'-blok.",
+    "unexpectedEnd": "'{keyword}' sluit nie 'n oop blok nie.",
+    "missingEnd": "Die '{keyword}'-blok kort 'einde'.",
+    "invalidFunction": "Probeer: {keyword} naam(parameter1, parameter2)",
+    "invalidFor": "Probeer: {keyword} item {inKeyword} lys",
+    "returnOutsideFunction": "'gee' kan net binne 'n funksie gebruik word.",
+    "unknownVariable": "Ek kan nie 'n veranderlike met die naam '{name}' vind nie.",
+    "invalidCharacter": "Ek het nie die karakter '{character}' verwag nie.",
+    "expected": "Ek het {expected} verwag.",
+    "notCallable": "Net 'n funksie kan met hakies geroep word.",
+    "wrongArguments": "Funksie '{name}' verwag {expected} waardes, maar het {actual} ontvang.",
+    "divideByZero": "'n Getal kan nie deur nul gedeel word nie.",
+    "invalidOperand": "Die bewerking '{operator}' werk nie met hierdie waardes nie.",
+    "invalidIndex": "Net teks, 'n lys, of 'n kaart kan 'n indeks gebruik.",
+    "loopLimit": "Die program is gestop omdat dit te lank geloop het."
+  }
+}

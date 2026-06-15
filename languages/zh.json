@@ -1,0 +1,48 @@
+{
+  "code": "zh",
+  "name": "中文",
+  "keywords": {
+    "print": ["说", "输出"],
+    "set": ["设置", "设"],
+    "if": ["如果"],
+    "else": ["否则"],
+    "end": ["结束"],
+    "repeat": ["重复"],
+    "for": ["对于"],
+    "in": ["在"],
+    "function": ["函数"],
+    "return": ["返回"]
+  },
+  "values": {
+    "true": ["真"],
+    "false": ["假"],
+    "nothing": ["空"],
+    "counter": ["次数"]
+  },
+  "operators": {
+    "and": ["且"],
+    "or": ["或"],
+    "not": ["非"]
+  },
+  "errors": {
+    "line": "第 {line} 行：{message}",
+    "unknownKeyword": "无法识别关键字“{keyword}”。",
+    "missingValue": "“{keyword}”后面需要一个值。",
+    "invalidSet": "请尝试：{keyword} 名称 = 值",
+    "unexpectedElse": "“{keyword}”需要对应的“如果”代码块。",
+    "unexpectedEnd": "“{keyword}”没有对应的代码块。",
+    "missingEnd": "“{keyword}”代码块需要“结束”。",
+    "invalidFunction": "请尝试：{keyword} 名称(参数1, 参数2)",
+    "invalidFor": "请尝试：{keyword} 项目 {inKeyword} 列表",
+    "returnOutsideFunction": "“返回”只能在函数中使用。",
+    "unknownVariable": "找不到名为“{name}”的变量。",
+    "invalidCharacter": "不应出现字符“{character}”。",
+    "expected": "这里需要{expected}。",
+    "notCallable": "只有函数可以使用括号调用。",
+    "wrongArguments": "函数“{name}”需要 {expected} 个值，但收到了 {actual} 个。",
+    "divideByZero": "数字不能除以零。",
+    "invalidOperand": "运算符“{operator}”不能用于这些值。",
+    "invalidIndex": "只有文本、列表或映射可以使用索引。",
+    "loopLimit": "程序运行步骤过多，已停止。"
+  }
+}
