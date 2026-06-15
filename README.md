@@ -560,7 +560,6 @@ Moedertaal gee doelbewus nie toegang tot die volgende nie:
 - onbeperkte lêertoegang
 - dinamiese pakketinstallasie
 - JavaScript-uitvoering
-- klasse of oorerwing
 
 ## Toetse
 
