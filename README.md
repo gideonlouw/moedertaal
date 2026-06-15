@@ -1,12 +1,22 @@
 # Moedertaal
 
-Moedertaal is a small beginner-friendly programming language with localized
-keywords. It supports Afrikaans, English, Chinese, Russian, Spanish, isiZulu,
-isiXhosa, and Sesotho. Source files use the `.mt` extension and UTF-8 encoding.
+Moedertaal is 'n klein, beginnersvriendelike programmeertaal met gelokaliseerde
+sleutelwoorde en funksies. Dit ondersteun tans Afrikaans, English, Chinese,
+Russian, Spanish, isiZulu, isiXhosa en Sesotho. Bronlêers gebruik die `.mt`
+uitbreiding en UTF-8-kodering.
 
-## Install and Run
+## Other Languages
 
-Node.js 20 or newer is required.
+**English:** The examples below are shown in Afrikaans, isiZulu, and Chinese.
+If you do not understand these languages, run
+`moed languages` to see the available languages. Look in the `languages`
+folder for the keywords and function names in your language. English names
+remain available for compatibility. New translations are welcome; use
+`languages/en.json` as the reference when adding your own language.
+
+## Installeer en Begin / Faka bese Uqalisa
+
+Node.js 20 of nuwer word vereis.
 
 ```powershell
 npm install
@@ -14,7 +24,7 @@ npm link
 moed run examples/calculator.mt
 ```
 
-The command-line runner provides:
+Die opdragreël gebruik:
 
 ```text
 moed run file.mt
@@ -23,174 +33,367 @@ moed repl
 moed languages
 ```
 
-`run` executes a program and exits with code 1 on failure. `check` parses a
-program without executing it. `repl` opens a small interactive prompt; enter
-`:exit` to leave.
+- `run` voer 'n program uit.
+- `check` toets die sintaksis sonder om die program uit te voer.
+- `repl` open 'n interaktiewe Moedertaal-prompt. Tik `:exit` om te sluit.
+- `languages` wys al die beskikbare tale.
 
-## Variables and Collections
+## Veranderlikes en Versamelings / Okuguqukayo Neziqoqo
 
-The universal `let` form works in every language:
+### Afrikaans
 
 ```text
-let nums = [1, 2, 3]
-let user = { name: "Gideon", age: 40 }
+stel nommers = [1, 2, 3]
+stel gebruiker = { naam: "Gideon", ouderdom: 40 }
 
-print(nums[0])
-print(user["name"])
-print(length(nums))
+druk(nommers[0])
+druk(gebruiker["naam"])
+druk(lengte(nommers))
 
-push(nums, 4)
-for number in nums
-  print(number)
-end
+voegBy(nommers, 4)
+vir nommer in nommers
+  druk(nommer)
+einde
 ```
 
-Arrays use zero-based indexes. Iterating over a map visits its keys.
-`length()` is an alias for `len()`.
-
-Localized assignment and output commands remain supported:
+### isiZulu
 
 ```text
-stel naam = "Wêreld"
-sê "Hallo " + naam
+beka izinombolo = [1, 2, 3]
+beka umsebenzisi = { igama: "Gideon", iminyaka: 40 }
+
+bonisa(izinombolo[0])
+bonisa(umsebenzisi["igama"])
+bonisa(ubude(izinombolo))
+
+engeza(izinombolo, 4)
+ngayinye inombolo ku izinombolo
+  bonisa(inombolo)
+qeda
 ```
 
-## Records
-
-Records provide named fields without inheritance or class complexity:
+### Chinese / 中文
 
 ```text
-record Person {
-  name
-  age
+设置 数字 = [1, 2, 3]
+设置 用户 = { 名字: "Gideon", 年龄: 40 }
+
+打印(数字[0])
+打印(用户["名字"])
+打印(长度(数字))
+
+添加(数字, 4)
+对于 数 在 数字
+  打印(数)
+结束
+```
+
+Lyste gebruik indekse wat by nul begin. Wanneer 'n kaart herhaal word, word
+sy sleutels besoek.
+
+## Besluite / Izinqumo
+
+### Afrikaans
+
+```text
+stel ouderdom = 17
+
+as ouderdom >= 18
+  druk("Volwassene")
+anders
+  druk("Nog nie")
+einde
+```
+
+### isiZulu
+
+```text
+beka iminyaka = 17
+
+uma iminyaka >= 18
+  bonisa("Umuntu omdala")
+kungenjalo
+  bonisa("Hhayi okwamanje")
+qeda
+```
+
+### Chinese / 中文
+
+```text
+设置 年龄 = 17
+
+如果 年龄 >= 18
+  打印("成年人")
+否则
+  打印("还没有")
+结束
+```
+
+## Funksies / Imisebenzi
+
+### Afrikaans
+
+```text
+funksie verdubbel(getal)
+  gee getal * 2
+einde
+
+druk(verdubbel(5))
+```
+
+### isiZulu
+
+```text
+umsebenzi phinda_kabili(inombolo)
+  buyisa inombolo * 2
+qeda
+
+bonisa(phinda_kabili(5))
+```
+
+### Chinese / 中文
+
+```text
+函数 双倍(数字)
+  返回 数字 * 2
+结束
+
+打印(双倍(5))
+```
+
+## Rekords / Amarekhodi
+
+`record` en `let` is tans gedeelde sintaksis wat in elke taal werk.
+
+### Afrikaans
+
+```text
+record Persoon {
+  naam
+  ouderdom
 }
 
-let person = Person("Gideon", 40)
-print(person.name)
-print(person.age)
+let persoon = Persoon("Gideon", 40)
+druk(persoon.naam)
+druk(persoon.ouderdom)
 ```
 
-Records are simple data values. They do not have methods, inheritance, or
-hidden constructors.
-
-## Standard Library
-
-The small built-in library includes:
+### isiZulu
 
 ```text
-print(value)
-input("Prompt: ")
-len(value)
-length(value)
-push(array, value)
-type(value)
-toText(value)
-toNumber(value)
-random()
-math.floor(number)
-math.round(number)
-readText(path)
-writeText(path, text)
+record Umuntu {
+  igama
+  iminyaka
+}
+
+let umuntu = Umuntu("Gideon", 40)
+bonisa(umuntu.igama)
+bonisa(umuntu.iminyaka)
 ```
 
-`random()` returns a number from 0 up to, but not including, 1.
-
-### Localized Function Names
-
-Every standard-library function has localized aliases. English names remain
-available for compatibility, but a program may be written using its own
-language throughout.
-
-| Meaning | Afrikaans | Spanish | isiZulu | isiXhosa | Sesotho |
-| --- | --- | --- | --- | --- | --- |
-| print | `druk()` | `imprimir()` | `bonisa()` | `bonisa()` | `bontsha()` |
-| input | `invoer()` | `entrada()` | `faka()` | `faka()` | `kenya()` |
-| length | `lengte()` | `longitud()` | `ubude()` | `ubude()` | `bolelele()` |
-| push | `voegBy()` | `agregar()` | `engeza()` | `yongeza()` | `eketsa()` |
-| type | `tipe()` | `tipo()` | `uhlobo()` | `uhlobo()` | `mofuta()` |
-| to text | `naTeks()` | `aTexto()` | `kumbhalo()` | `kumbhalo()` | `hoMongolo()` |
-| to number | `naGetal()` | `aNúmero()` | `kunombolo()` | `kwinani()` | `hoNomoro()` |
-| random | `lukraak()` | `aleatorio()` | `okungahleliwe()` | `ngokungakhethiyo()` | `kaTshohanyetso()` |
-| read text | `leesTeks()` | `leerTexto()` | `fundaUmbhalo()` | `fundaUmbhalo()` | `balaMongolo()` |
-| write text | `skryfTeks()` | `escribirTexto()` | `bhalaUmbhalo()` | `bhalaUmbhalo()` | `ngolaMongolo()` |
-
-Russian and Chinese aliases are also defined in their language packs.
-Localized math namespaces work in the same way, for example:
+### Chinese / 中文
 
 ```text
+record 人 {
+  名字
+  年龄
+}
+
+let 用户 = 人("Gideon", 40)
+打印(用户.名字)
+打印(用户.年龄)
+```
+
+Rekords is eenvoudige datawaardes. Hulle het nie oorerwing, metodes of
+versteekte konstruktors nie.
+
+## Standaardfunksies / Imisebenzi Ejwayelekile
+
+| Betekenis / Meaning | Afrikaans | isiZulu | Chinese / 中文 |
+| --- | --- | --- | --- |
+| druk / print | `druk()` | `bonisa()` | `打印()` |
+| invoer / input | `invoer()` | `faka()` | `输入()` |
+| lengte / length | `lengte()` | `ubude()` | `长度()` |
+| voeg by / push | `voegBy()` | `engeza()` | `添加()` |
+| tipe / type | `tipe()` | `uhlobo()` | `类型()` |
+| na teks / to text | `naTeks()` | `kumbhalo()` | `转文本()` |
+| na getal / to number | `naGetal()` | `kunombolo()` | `转数字()` |
+| lukraak / random | `lukraak()` | `okungahleliwe()` | `随机()` |
+| lees teks / read text | `leesTeks()` | `fundaUmbhalo()` | `读取文本()` |
+| skryf teks / write text | `skryfTeks()` | `bhalaUmbhalo()` | `写入文本()` |
+
+### Afrikaans
+
+```text
+stel naam = invoer("Wat is jou naam? ")
+druk("Hallo " + naam)
+druk(naGetal("12") + 3)
+druk(tipe([1, 2, 3]))
 druk(wiskunde.vloer(3.9))
 druk(wiskunde.rond(3.6))
+druk(lukraak())
 ```
 
-An Afrikaans file-reading program can be written without English function
-names:
+### isiZulu
 
 ```text
-stel inhoud = leesTeks("sample.txt")
+beka igama = faka("Ngubani igama lakho? ")
+bonisa("Sawubona " + igama)
+bonisa(kunombolo("12") + 3)
+bonisa(uhlobo([1, 2, 3]))
+bonisa(izibalo.phansi(3.9))
+bonisa(izibalo.sondeza(3.6))
+bonisa(okungahleliwe())
+```
+
+### Chinese / 中文
+
+```text
+设置 名字 = 输入("你叫什么名字？")
+打印("你好，" + 名字)
+打印(转数字("12") + 3)
+打印(类型([1, 2, 3]))
+打印(数学.向下取整(3.9))
+打印(数学.四舍五入(3.6))
+打印(随机())
+```
+
+Die lukraakfunksie gee 'n getal vanaf nul tot net onder een.
+
+## Veilige Lêertoegang / Ukufinyelela Amafayela Ngokuphepha
+
+Programme mag slegs binne hul `sandbox`-gids lees en skryf. Die gids is
+standaard langs die `.mt`-program.
+
+### Afrikaans
+
+```text
+skryfTeks("notas.txt", "Hallo vanuit Moedertaal")
+stel inhoud = leesTeks("notas.txt")
 druk("Die lêer bevat:")
 druk(inhoud)
 ```
 
-## Safe File Access
-
-Programs may only read and write inside their sandbox folder. By default, this
-is a folder named `sandbox` beside the running `.mt` file.
+### isiZulu
 
 ```text
-writeText("notes.txt", "Hello from Moedertaal")
-print(readText("notes.txt"))
+bhalaUmbhalo("amanothi.txt", "Sawubona kusuka ku-Moedertaal")
+beka okuqukethwe = fundaUmbhalo("amanothi.txt")
+bonisa("Ifayela liqukethe:")
+bonisa(okuqukethwe)
 ```
 
-Absolute paths and parent traversal such as `../secret.txt` are rejected. A
-custom sandbox can be selected:
+### Chinese / 中文
+
+```text
+写入文本("笔记.txt", "你好，Moedertaal")
+设置 内容 = 读取文本("笔记.txt")
+打印("文件内容：")
+打印(内容)
+```
+
+Absolute paaie en ouergidspaaie soos `../secret.txt` word geblokkeer.
 
 ```powershell
 moed run program.mt --sandbox C:\MySafeFolder
 ```
 
-The file-reading example uses this layout:
+Die lêerleesvoorbeeld gebruik:
 
 ```text
 examples/
-  read-file.mt
+  read-file-afrikaans.mt
   sandbox/
     sample.txt
 ```
 
-Run it with:
-
 ```powershell
-moed run examples/read-file.mt
 moed run examples/read-file-afrikaans.mt
 ```
 
-It calls `readText("sample.txt")` and prints the file contents.
+## Modules / Amamojuli
 
-## Modules
+`import` is tans gedeelde sintaksis. Dit laai funksies en rekords uit 'n ander
+`.mt`-lêer.
 
-Import top-level functions or records from another `.mt` file:
+### Afrikaans
 
-```text
-import "math"
-import "./tools/helpers.mt"
-
-print(double(6))
-```
-
-`import "math"` looks for `math.mt` beside the importing file. Relative paths
-are resolved from the file containing the import. Module variables stay
-private, modules load once, and circular imports are rejected.
-
-## Errors
-
-Syntax and runtime errors include the filename, line, column, and a helpful
-message:
+`wiskunde.mt`:
 
 ```text
-C:\project\broken.mt:3:18: I expected ']'.
+funksie verdubbel(getal)
+  gee getal * 2
+einde
 ```
 
-## Examples
+Hoofprogram:
+
+```text
+import "wiskunde"
+druk(verdubbel(6))
+```
+
+### isiZulu
+
+`izibalo.mt`:
+
+```text
+umsebenzi phinda_kabili(inombolo)
+  buyisa inombolo * 2
+qeda
+```
+
+Uhlelo olukhulu:
+
+```text
+import "izibalo"
+bonisa(phinda_kabili(6))
+```
+
+### Chinese / 中文
+
+`数学工具.mt`:
+
+```text
+函数 双倍(数字)
+  返回 数字 * 2
+结束
+```
+
+主程序:
+
+```text
+import "数学工具"
+打印(双倍(6))
+```
+
+`import "wiskunde"` soek `wiskunde.mt` langs die program. Relatiewe paaie soos
+`import "./tools/helpers.mt"` word ook ondersteun. Modules laai net een keer,
+moduleveranderlikes bly privaat en sirkelinvoere word geblokkeer.
+
+## Foute / Amaphutha
+
+Sintaksis- en looptydfoute wys die lêernaam, reël, kolom en 'n nuttige boodskap.
+
+### Afrikaans
+
+```text
+C:\projek\gebreek.mt:3:18: Ek het ']' verwag.
+```
+
+### isiZulu
+
+```text
+C:\uhlelo\iphutha.mt:3:18: Bengilindele ']'.
+```
+
+### Chinese / 中文
+
+```text
+C:\项目\错误.mt:3:18: 这里需要']'。
+```
+
+## Voorbeeldprogramme / Izinhlelo Zezibonelo
 
 ```powershell
 moed run examples/calculator.mt
@@ -198,50 +401,52 @@ moed run examples/guess-number.mt
 moed run examples/todo-list.mt
 moed run examples/bank-account.mt
 moed run examples/text-adventure.mt
-moed run examples/read-file.mt
+moed run examples/read-file-afrikaans.mt
 ```
 
-The calculator, guessing game, and text adventure request keyboard input. The
-todo program demonstrates arrays, iteration, `push()`, and sandboxed file
-writing. The bank account demonstrates records.
+Die sakrekenaar, raaispeletjie en teksavontuur vra sleutelbordinvoer. Die
+taaklys wys lyste, herhaling, byvoeging en veilige lêerskryf. Die bankrekening
+wys rekords.
 
-## Browser Playground
+## Blaaier-speelgrond / Indawo Yokuzama Esipheqululini
 
 ```powershell
 node playground/server.js
 ```
 
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080). The browser playground
-supports language syntax, collections, records, and safe non-host built-ins.
-Keyboard input, modules, and filesystem access require the command-line runner.
+Open [http://127.0.0.1:8080](http://127.0.0.1:8080). Die speelgrond ondersteun
+gelokaliseerde sintaksis, versamelings, rekords en veilige funksies wat nie
+gasheertoegang benodig nie. Sleutelbordinvoer, modules en lêertoegang gebruik
+die opdragreël.
 
 ## Visual Studio Code
 
-The extension source is in `editor/moedertaal-vscode`. It provides `.mt` file
-recognition, syntax highlighting, and document formatting.
+Die uitbreiding is in `editor/moedertaal-vscode`. Dit bied `.mt`-lêerherkenning,
+sintaksisverligting en dokumentformatering.
 
-## Security Scope
+## Veiligheid / Ukuphepha
 
-Moedertaal intentionally does not expose:
+Moedertaal gee doelbewus nie toegang tot die volgende nie:
 
-- networking
-- shell commands or process execution
-- unrestricted filesystem access
-- dynamic package installation
-- JavaScript evaluation
+- netwerke
+- dopopdragte of prosesuitvoering
+- onbeperkte lêertoegang
+- dinamiese pakketinstallasie
+- JavaScript-uitvoering
+- klasse of oorerwing
 
-## Tests
+## Toetse / Ukuhlola
 
 ```powershell
 node --test
 ```
 
-## Adding a Spoken Language
+## Voeg 'n Taal By / Engeza Ulimi
 
-Language packs are JSON files in `languages`. Use `languages/en.json` as the
-reference and add an example and test. Translations should be reviewed by a
-fluent speaker and should feel natural when read aloud.
+Taalpakke is JSON-lêers in `languages`. Gebruik `languages/en.json` as
+verwysing en voeg 'n voorbeeld en toets by. Vertalings moet deur 'n vlot
+spreker nagegaan word en natuurlik klink wanneer dit hardop gelees word.
 
-## License
+## Lisensie / Ilayisense
 
-Moedertaal is available under the [MIT License](LICENSE).
+Moedertaal is beskikbaar onder die [MIT License](LICENSE).
