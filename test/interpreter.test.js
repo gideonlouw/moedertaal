@@ -19,6 +19,25 @@ test("runs the original programs in Afrikaans, English, and Chinese", () => {
   ]);
 });
 
+test("loads and runs every supported language", () => {
+  const programs = {
+    af: 'sê "Hallo"',
+    en: 'say "Hello"',
+    es: 'di "Hola"',
+    ru: 'скажи "Привет"',
+    st: 'bua "Dumela"',
+    xh: 'bhala "Molo"',
+    zh: '说 "你好"',
+    zu: 'bhala "Sawubona"',
+  };
+  const packs = loadLanguagePacks();
+
+  assert.deepEqual([...packs.keys()].sort(), Object.keys(programs));
+  for (const [language, source] of Object.entries(programs)) {
+    assert.equal(run(source, { language }).output.length, 1);
+  }
+});
+
 test("supports localized booleans, arithmetic, and logic", () => {
   const result = run(`
     stel antwoord = (10 + 2) * 3 == 36 en nie onwaar

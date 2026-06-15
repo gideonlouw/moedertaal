@@ -1,0 +1,48 @@
+{
+  "code": "ru",
+  "name": "Русский",
+  "keywords": {
+    "print": ["скажи", "печать"],
+    "set": ["задать"],
+    "if": ["если"],
+    "else": ["иначе"],
+    "end": ["конец"],
+    "repeat": ["повторить"],
+    "for": ["для"],
+    "in": ["в"],
+    "function": ["функция"],
+    "return": ["вернуть"]
+  },
+  "values": {
+    "true": ["истина"],
+    "false": ["ложь"],
+    "nothing": ["ничто"],
+    "counter": ["счётчик"]
+  },
+  "operators": {
+    "and": ["и"],
+    "or": ["или"],
+    "not": ["не"]
+  },
+  "errors": {
+    "line": "Строка {line}: {message}",
+    "unknownKeyword": "Неизвестное ключевое слово «{keyword}».",
+    "missingValue": "После «{keyword}» требуется значение.",
+    "invalidSet": "Попробуйте: {keyword} имя = значение",
+    "unexpectedElse": "Для «{keyword}» нужен соответствующий блок «если».",
+    "unexpectedEnd": "«{keyword}» не закрывает открытый блок.",
+    "missingEnd": "Для блока «{keyword}» требуется «конец».",
+    "invalidFunction": "Попробуйте: {keyword} имя(параметр1, параметр2)",
+    "invalidFor": "Попробуйте: {keyword} элемент {inKeyword} список",
+    "returnOutsideFunction": "«вернуть» можно использовать только внутри функции.",
+    "unknownVariable": "Переменная «{name}» не найдена.",
+    "invalidCharacter": "Неожиданный символ «{character}».",
+    "expected": "Ожидалось: {expected}.",
+    "notCallable": "Со скобками можно вызывать только функцию.",
+    "wrongArguments": "Функция «{name}» ожидает значений: {expected}, получено: {actual}.",
+    "divideByZero": "Нельзя делить число на ноль.",
+    "invalidOperand": "Оператор «{operator}» нельзя применить к этим значениям.",
+    "invalidIndex": "Индекс можно использовать только для текста, списка или словаря.",
+    "loopLimit": "Программа остановлена из-за слишком большого количества шагов."
+  }
+}

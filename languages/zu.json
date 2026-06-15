@@ -1,0 +1,48 @@
+{
+  "code": "zu",
+  "name": "isiZulu",
+  "keywords": {
+    "print": ["bhala", "phrinta"],
+    "set": ["beka"],
+    "if": ["uma"],
+    "else": ["kungenjalo"],
+    "end": ["qeda"],
+    "repeat": ["phinda"],
+    "for": ["ngayinye"],
+    "in": ["ku"],
+    "function": ["umsebenzi"],
+    "return": ["buyisa"]
+  },
+  "values": {
+    "true": ["iqiniso"],
+    "false": ["amanga"],
+    "nothing": ["lutho"],
+    "counter": ["isibali"]
+  },
+  "operators": {
+    "and": ["futhi"],
+    "or": ["noma"],
+    "not": ["hhayi"]
+  },
+  "errors": {
+    "line": "Umugqa {line}: {message}",
+    "unknownKeyword": "Angilazi igama eliyisihluthulelo elithi '{keyword}'.",
+    "missingValue": "'{keyword}' idinga inani ngemva kwayo.",
+    "invalidSet": "Zama: {keyword} igama = inani",
+    "unexpectedElse": "'{keyword}' idinga ibhulokhi ethi 'uma'.",
+    "unexpectedEnd": "'{keyword}' ayivali ibhulokhi evulekile.",
+    "missingEnd": "Ibhulokhi ethi '{keyword}' idinga u-'qeda'.",
+    "invalidFunction": "Zama: {keyword} igama(ipharamitha1, ipharamitha2)",
+    "invalidFor": "Zama: {keyword} into {inKeyword} uhlu",
+    "returnOutsideFunction": "'buyisa' ingasetshenziswa kuphela ngaphakathi komsebenzi.",
+    "unknownVariable": "Angitholi okuguquguqukayo okunegama elithi '{name}'.",
+    "invalidCharacter": "Bengingalindele uhlamvu oluthi '{character}'.",
+    "expected": "Bengilindele {expected}.",
+    "notCallable": "Umsebenzi kuphela ongabizwa ngabakaki.",
+    "wrongArguments": "Umsebenzi '{name}' ulindele amanani angu-{expected}, kodwa uthole angu-{actual}.",
+    "divideByZero": "Inombolo ayikwazi ukuhlukaniswa ngoziro.",
+    "invalidOperand": "Uphawu '{operator}' alukwazi ukusetshenziswa nala manani.",
+    "invalidIndex": "Umbhalo, uhlu, noma imephu kuphela okungasebenzisa inkomba.",
+    "loopLimit": "Uhlelo lumisiwe ngoba lusebenze izinyathelo eziningi kakhulu."
+  }
+}

@@ -10,9 +10,6 @@ const routes = new Map([
   ["/styles.css", "playground/styles.css"],
   ["/app.js", "playground/app.js"],
   ["/runtime.js", "src/runtime.js"],
-  ["/languages/af.json", "languages/af.json"],
-  ["/languages/en.json", "languages/en.json"],
-  ["/languages/zh.json", "languages/zh.json"],
 ]);
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -22,7 +19,31 @@ const types = {
 };
 
 const server = http.createServer((request, response) => {
-  const relativePath = routes.get(new URL(request.url, "http://localhost").pathname);
+  const pathname = new URL(request.url, "http://localhost").pathname;
+
+  if (pathname === "/languages") {
+    const languages = fs.readdirSync(path.join(root, "languages"))
+      .filter((fileName) => fileName.endsWith(".json"))
+      .map((fileName) => JSON.parse(
+        fs.readFileSync(path.join(root, "languages", fileName), "utf8"),
+      ))
+      .map(({ code, name }) => ({ code, name }))
+      .sort((left, right) => left.name.localeCompare(right.name));
+    response.writeHead(200, {
+      "content-type": types[".json"],
+      "cache-control": "no-store",
+    });
+    response.end(JSON.stringify(languages));
+    return;
+  }
+
+  const languageMatch = pathname.match(/^\/languages\/([a-z]{2})\.json$/u);
+  const candidatePath = languageMatch
+    ? `languages/${languageMatch[1]}.json`
+    : routes.get(pathname);
+  const relativePath = candidatePath && fs.existsSync(path.join(root, candidatePath))
+    ? candidatePath
+    : null;
   if (!relativePath) {
     response.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
     response.end("Not found");
@@ -40,3 +61,5 @@ const server = http.createServer((request, response) => {
 server.listen(port, "127.0.0.1", () => {
   console.log(`Moedertaal playground: http://127.0.0.1:${port}`);
 });
+
+export { server };

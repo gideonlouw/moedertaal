@@ -1,7 +1,8 @@
 # Moedertaal for Visual Studio Code
 
 This extension adds syntax highlighting and document formatting for `.mt`
-files in Afrikaans, English, and Chinese.
+files in Afrikaans, English, Chinese, Russian, Spanish, isiZulu, isiXhosa, and
+Sesotho.
 
 ## Build and install
 

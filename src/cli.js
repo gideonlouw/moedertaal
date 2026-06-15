@@ -22,7 +22,8 @@ Usage:
 
 Examples:
   moedertaal examples/afrikaans.mt
-  moedertaal examples/chinese.mt --language zh`);
+  moedertaal examples/chinese.mt --language zh
+  moedertaal examples/zulu-v02.mt --language zu`);
 }
 
 function main() {

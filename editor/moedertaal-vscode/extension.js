@@ -4,9 +4,18 @@ const openers = new Set([
   "as", "herhaal", "vir", "funksie",
   "if", "repeat", "for", "function",
   "如果", "重复", "对于", "函数",
+  "если", "повторить", "для", "функция",
+  "si", "repite", "para", "función",
+  "uma", "phinda", "ngayinye", "umsebenzi",
+  "ukuba", "nganye",
+  "haeba", "pheta", "bakeng", "tshebetso",
 ]);
-const branches = new Set(["anders", "else", "否则"]);
-const endings = new Set(["einde", "end", "结束"]);
+const branches = new Set([
+  "anders", "else", "否则", "иначе", "sino", "kungenjalo", "ho_seng_jwalo",
+]);
+const endings = new Set([
+  "einde", "end", "结束", "конец", "fin", "qeda", "gqiba", "qetella",
+]);
 
 function format(text) {
   let depth = 0;

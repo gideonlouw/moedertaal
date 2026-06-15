@@ -1,0 +1,48 @@
+{
+  "code": "es",
+  "name": "Español",
+  "keywords": {
+    "print": ["di", "imprime"],
+    "set": ["asigna"],
+    "if": ["si"],
+    "else": ["sino"],
+    "end": ["fin"],
+    "repeat": ["repite"],
+    "for": ["para"],
+    "in": ["en"],
+    "function": ["función"],
+    "return": ["devuelve"]
+  },
+  "values": {
+    "true": ["verdadero"],
+    "false": ["falso"],
+    "nothing": ["nada"],
+    "counter": ["contador"]
+  },
+  "operators": {
+    "and": ["y"],
+    "or": ["o"],
+    "not": ["no"]
+  },
+  "errors": {
+    "line": "Línea {line}: {message}",
+    "unknownKeyword": "No conozco la palabra clave «{keyword}».",
+    "missingValue": "«{keyword}» necesita un valor después.",
+    "invalidSet": "Prueba: {keyword} nombre = valor",
+    "unexpectedElse": "«{keyword}» necesita un bloque «si» correspondiente.",
+    "unexpectedEnd": "«{keyword}» no cierra ningún bloque abierto.",
+    "missingEnd": "El bloque «{keyword}» necesita «fin».",
+    "invalidFunction": "Prueba: {keyword} nombre(parámetro1, parámetro2)",
+    "invalidFor": "Prueba: {keyword} elemento {inKeyword} lista",
+    "returnOutsideFunction": "«devuelve» solo se puede usar dentro de una función.",
+    "unknownVariable": "No encuentro una variable llamada «{name}».",
+    "invalidCharacter": "No esperaba el carácter «{character}».",
+    "expected": "Esperaba {expected}.",
+    "notCallable": "Solo se puede llamar a una función con paréntesis.",
+    "wrongArguments": "La función «{name}» espera {expected} valores, pero recibió {actual}.",
+    "divideByZero": "No se puede dividir un número entre cero.",
+    "invalidOperand": "El operador «{operator}» no se puede usar con estos valores.",
+    "invalidIndex": "Solo texto, una lista o un mapa puede usar un índice.",
+    "loopLimit": "El programa se detuvo porque ejecutó demasiados pasos."
+  }
+}

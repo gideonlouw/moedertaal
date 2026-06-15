@@ -43,11 +43,32 @@ end`,
 对于 数 在 数字
   说 双倍(数)
 结束`,
+  ru: `задать имя = "Анна"
+если истина
+  скажи "Привет, " + имя + "!"
+конец`,
+  es: `asigna nombre = "Lucía"
+si verdadero
+  di "¡Hola, " + nombre + "!"
+fin`,
+  zu: `beka igama = "Thandi"
+uma iqiniso
+  bhala "Sawubona, " + igama + "!"
+qeda`,
+  xh: `misela igama = "Lwazi"
+ukuba yinyani
+  bhala "Molo, " + igama + "!"
+gqiba`,
+  st: `beha lebitso = "Naledi"
+haeba nnete
+  bua "Dumela, " + lebitso + "!"
+qetella`,
 };
 
+const availableLanguages = await fetch("/languages").then((response) => response.json());
 const packs = new Map(
   await Promise.all(
-    ["af", "en", "zh"].map(async (code) => [
+    availableLanguages.map(async ({ code }) => [
       code,
       await fetch(`/languages/${code}.json`).then((response) => response.json()),
     ]),
@@ -58,6 +79,14 @@ const language = document.querySelector("#language");
 const code = document.querySelector("#code");
 const output = document.querySelector("#output");
 const status = document.querySelector("#status");
+
+for (const item of availableLanguages) {
+  const option = document.createElement("option");
+  option.value = item.code;
+  option.textContent = item.name;
+  language.append(option);
+}
+language.value = "af";
 
 function showExample() {
   code.value = examples[language.value];

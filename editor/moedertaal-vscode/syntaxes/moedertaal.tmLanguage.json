@@ -37,11 +37,11 @@
       "patterns": [
         {
           "name": "keyword.control.moedertaal",
-          "match": "\\b(?:sê|skryf|stel|as|anders|einde|herhaal|vir|in|funksie|gee|say|print|set|let|if|else|end|repeat|for|function|return|说|输出|设置|设|如果|否则|结束|重复|对于|在|函数|返回)\\b"
+          "match": "(?<![\\p{L}\\p{N}_])(?:sê|skryf|stel|as|anders|einde|herhaal|vir|in|funksie|gee|say|print|set|let|if|else|end|repeat|for|function|return|说|输出|设置|设|如果|否则|结束|重复|对于|在|函数|返回|скажи|печать|задать|если|иначе|конец|повторить|для|в|функция|вернуть|di|imprime|asigna|si|sino|fin|repite|para|en|función|devuelve|bhala|phrinta|beka|uma|kungenjalo|qeda|phinda|ngayinye|ku|umsebenzi|buyisa|shicilela|misela|ukuba|gqiba|nganye|kwi|bua|ngola|beha|haeba|ho_seng_jwalo|qetella|pheta|bakeng|ho|tshebetso|kgutlisa)(?![\\p{L}\\p{N}_])"
         },
         {
           "name": "keyword.operator.word.moedertaal",
-          "match": "\\b(?:en|of|nie|and|or|not|且|或|非)\\b"
+          "match": "(?<![\\p{L}\\p{N}_])(?:en|of|nie|and|or|not|且|或|非|и|или|не|y|o|no|futhi|noma|hhayi|kwaye|okanye|hayi|le|kapa|tjhe)(?![\\p{L}\\p{N}_])"
         }
       ]
     },
@@ -49,14 +49,14 @@
       "patterns": [
         {
           "name": "constant.language.moedertaal",
-          "match": "\\b(?:waar|onwaar|niks|true|false|nothing|真|假|空)\\b"
+          "match": "(?<![\\p{L}\\p{N}_])(?:waar|onwaar|niks|true|false|nothing|真|假|空|истина|ложь|ничто|verdadero|falso|nada|iqiniso|amanga|lutho|yinyani|bubuxoki|nto|nnete|leshano|letho)(?![\\p{L}\\p{N}_])"
         }
       ]
     },
     "functions": {
       "patterns": [
         {
-          "match": "\\b(funksie|function|函数)\\s+([\\p{L}_][\\p{L}\\p{N}_]*)(?=\\s*\\()",
+          "match": "(?<![\\p{L}\\p{N}_])(funksie|function|函数|функция|función|umsebenzi|tshebetso)\\s+([\\p{L}_][\\p{L}\\p{N}_]*)(?=\\s*\\()",
           "captures": {
             "1": { "name": "keyword.control.moedertaal" },
             "2": { "name": "entity.name.function.moedertaal" }

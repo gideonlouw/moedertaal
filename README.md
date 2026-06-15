@@ -1,8 +1,8 @@
 # Moedertaal
 
 Moedertaal is an open-source programming language whose keywords can be written
-in the programmer's own human language. Version 0.2 includes Afrikaans, English,
-and Chinese.
+in the programmer's own human language. It includes Afrikaans, English, Chinese,
+Russian, Spanish, isiZulu, isiXhosa, and Sesotho.
 
 ```text
 stel naam = "Wêreld"
@@ -29,6 +29,11 @@ Node.js 20 or newer is required. No third-party packages are needed.
 node src/cli.js examples/afrikaans-v02.mt
 node src/cli.js examples/english-v02.mt
 node src/cli.js examples/chinese-v02.mt
+node src/cli.js examples/zulu-v02.mt
+node src/cli.js examples/xhosa-v02.mt
+node src/cli.js examples/sesotho-v02.mt
+node src/cli.js examples/spanish-v02.mt
+node src/cli.js examples/russian-v02.mt
 ```
 
 Install the `moedertaal` command locally:
@@ -137,7 +142,7 @@ errors, and formatting. Press `Ctrl+Enter` to run a program.
 The extension source is in `editor/moedertaal-vscode`. It provides:
 
 - `.mt` file recognition
-- Syntax highlighting for all three languages
+- Syntax highlighting for all supported languages
 - Comment, bracket, and quote handling
 - **Format Document** support
 
@@ -158,6 +163,9 @@ complete reference and add a matching example and test.
 
 Translations should be reviewed by a fluent speaker. The words should feel
 natural in code rather than being blindly translated.
+
+The first Russian, Spanish, isiZulu, isiXhosa, and Sesotho packs are starter
+translations. Community review by fluent speakers is especially welcome.
 
 ## Tests
 

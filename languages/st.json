@@ -1,0 +1,48 @@
+{
+  "code": "st",
+  "name": "Sesotho",
+  "keywords": {
+    "print": ["bua", "ngola"],
+    "set": ["beha"],
+    "if": ["haeba"],
+    "else": ["ho_seng_jwalo"],
+    "end": ["qetella"],
+    "repeat": ["pheta"],
+    "for": ["bakeng"],
+    "in": ["ho"],
+    "function": ["tshebetso"],
+    "return": ["kgutlisa"]
+  },
+  "values": {
+    "true": ["nnete"],
+    "false": ["leshano"],
+    "nothing": ["letho"],
+    "counter": ["sebadi"]
+  },
+  "operators": {
+    "and": ["le"],
+    "or": ["kapa"],
+    "not": ["tjhe"]
+  },
+  "errors": {
+    "line": "Mola {line}: {message}",
+    "unknownKeyword": "Ha ke tsebe lentswe la taelo '{keyword}'.",
+    "missingValue": "'{keyword}' e hloka boleng ka mora yona.",
+    "invalidSet": "Leka: {keyword} lebitso = boleng",
+    "unexpectedElse": "'{keyword}' e hloka boloko bo tsamaellanang le 'haeba'.",
+    "unexpectedEnd": "'{keyword}' ha e kwale boloko bo butsweng.",
+    "missingEnd": "Boloko ba '{keyword}' bo hloka 'qetella'.",
+    "invalidFunction": "Leka: {keyword} lebitso(paramethara1, paramethara2)",
+    "invalidFor": "Leka: {keyword} ntho {inKeyword} lenane",
+    "returnOutsideFunction": "'kgutlisa' e ka sebediswa feela ka hare ho tshebetso.",
+    "unknownVariable": "Ha ke fumane phapantsho e bitswang '{name}'.",
+    "invalidCharacter": "Ke ne ke sa lebella tlhaku '{character}'.",
+    "expected": "Ke ne ke lebeletse {expected}.",
+    "notCallable": "Ke tshebetso feela e ka bitswang ka masakana.",
+    "wrongArguments": "Tshebetso '{name}' e lebeletse boleng ba {expected}, empa e fumane ba {actual}.",
+    "divideByZero": "Nomoro e ke ke ya arolwa ka lefela.",
+    "invalidOperand": "Letshwao '{operator}' le ke ke la sebediswa le boleng bona.",
+    "invalidIndex": "Ke mongolo, lenane, kapa mmapa feela o ka sebedisang index.",
+    "loopLimit": "Lenaneo le emisitswe hobane le entse mehato e mengata haholo."
+  }
+}
