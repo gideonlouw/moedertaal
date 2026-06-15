@@ -8,6 +8,7 @@
     { "include": "#numbers" },
     { "include": "#keywords" },
     { "include": "#values" },
+    { "include": "#builtins" },
     { "include": "#functions" }
   ],
   "repository": {
@@ -50,6 +51,14 @@
         {
           "name": "constant.language.moedertaal",
           "match": "(?<![\\p{L}\\p{N}_])(?:waar|onwaar|niks|true|false|nothing|真|假|空|истина|ложь|ничто|verdadero|falso|nada|iqiniso|amanga|lutho|yinyani|bubuxoki|nto|nnete|leshano|letho)(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.moedertaal",
+          "match": "(?<![\\p{L}\\p{N}_])(?:print|input|len|length|push|type|toText|toNumber|random|math|floor|round|readText|writeText|druk|invoer|lengte|voegBy|tipe|naTeks|naGetal|lukraak|wiskunde|vloer|rond|leesTeks|skryfTeks|imprimir|entrada|longitud|agregar|tipo|aTexto|aNúmero|aleatorio|matemáticas|piso|redondear|leerTexto|escribirTexto|вывести|ввод|длина|добавить|тип|вТекст|вЧисло|случайное|математика|пол|округлить|читатьТекст|писатьТекст|bonisa|faka|ubude|engeza|yongeza|uhlobo|kumbhalo|kunombolo|kwinani|okungahleliwe|ngokungakhethiyo|izibalo|phansi|ezantsi|sondeza|fundaUmbhalo|bhalaUmbhalo|bontsha|kenya|bolelele|eketsa|mofuta|hoMongolo|hoNomoro|kaTshohanyetso|dipalo|fatshe|potoloha|balaMongolo|ngolaMongolo|打印|输入|长度|添加|类型|转文本|转数字|随机|数学|向下取整|四舍五入|读取文本|写入文本)(?![\\p{L}\\p{N}_])"
         }
       ]
     },

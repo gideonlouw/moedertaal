@@ -24,6 +24,21 @@
     "or": ["或"],
     "not": ["非"]
   },
+  "builtins": {
+    "print": ["打印"],
+    "input": ["输入"],
+    "len": ["长度"],
+    "push": ["添加"],
+    "type": ["类型"],
+    "toText": ["转文本"],
+    "toNumber": ["转数字"],
+    "random": ["随机"],
+    "math": ["数学"],
+    "floor": ["向下取整"],
+    "round": ["四舍五入"],
+    "readText": ["读取文本"],
+    "writeText": ["写入文本"]
+  },
   "errors": {
     "line": "第 {line} 行：{message}",
     "unknownKeyword": "无法识别关键字“{keyword}”。",

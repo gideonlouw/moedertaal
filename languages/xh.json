@@ -24,6 +24,21 @@
     "or": ["okanye"],
     "not": ["hayi"]
   },
+  "builtins": {
+    "print": ["bonisa"],
+    "input": ["faka"],
+    "len": ["ubude"],
+    "push": ["yongeza"],
+    "type": ["uhlobo"],
+    "toText": ["kumbhalo"],
+    "toNumber": ["kwinani"],
+    "random": ["ngokungakhethiyo"],
+    "math": ["izibalo"],
+    "floor": ["ezantsi"],
+    "round": ["sondeza"],
+    "readText": ["fundaUmbhalo"],
+    "writeText": ["bhalaUmbhalo"]
+  },
   "errors": {
     "line": "Umgca {line}: {message}",
     "unknownKeyword": "Andilazi igama elingundoqo elithi '{keyword}'.",

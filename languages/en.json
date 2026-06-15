@@ -24,6 +24,21 @@
     "or": ["or"],
     "not": ["not"]
   },
+  "builtins": {
+    "print": ["print"],
+    "input": ["input"],
+    "len": ["len", "length"],
+    "push": ["push"],
+    "type": ["type"],
+    "toText": ["toText"],
+    "toNumber": ["toNumber"],
+    "random": ["random"],
+    "math": ["math"],
+    "floor": ["floor"],
+    "round": ["round"],
+    "readText": ["readText"],
+    "writeText": ["writeText"]
+  },
   "errors": {
     "line": "Line {line}: {message}",
     "unknownKeyword": "I do not know the keyword '{keyword}'.",

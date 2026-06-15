@@ -24,6 +24,21 @@
     "or": ["o"],
     "not": ["no"]
   },
+  "builtins": {
+    "print": ["imprimir"],
+    "input": ["entrada"],
+    "len": ["longitud"],
+    "push": ["agregar"],
+    "type": ["tipo"],
+    "toText": ["aTexto"],
+    "toNumber": ["aNúmero"],
+    "random": ["aleatorio"],
+    "math": ["matemáticas"],
+    "floor": ["piso"],
+    "round": ["redondear"],
+    "readText": ["leerTexto"],
+    "writeText": ["escribirTexto"]
+  },
   "errors": {
     "line": "Línea {line}: {message}",
     "unknownKeyword": "No conozco la palabra clave «{keyword}».",

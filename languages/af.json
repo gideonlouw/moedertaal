@@ -24,6 +24,21 @@
     "or": ["of"],
     "not": ["nie"]
   },
+  "builtins": {
+    "print": ["druk"],
+    "input": ["invoer"],
+    "len": ["lengte"],
+    "push": ["voegBy"],
+    "type": ["tipe"],
+    "toText": ["naTeks"],
+    "toNumber": ["naGetal"],
+    "random": ["lukraak"],
+    "math": ["wiskunde"],
+    "floor": ["vloer"],
+    "round": ["rond"],
+    "readText": ["leesTeks"],
+    "writeText": ["skryfTeks"]
+  },
   "errors": {
     "line": "Reël {line}: {message}",
     "unknownKeyword": "Ek ken nie die sleutelwoord '{keyword}' nie.",

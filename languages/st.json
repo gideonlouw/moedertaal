@@ -24,6 +24,21 @@
     "or": ["kapa"],
     "not": ["tjhe"]
   },
+  "builtins": {
+    "print": ["bontsha"],
+    "input": ["kenya"],
+    "len": ["bolelele"],
+    "push": ["eketsa"],
+    "type": ["mofuta"],
+    "toText": ["hoMongolo"],
+    "toNumber": ["hoNomoro"],
+    "random": ["kaTshohanyetso"],
+    "math": ["dipalo"],
+    "floor": ["fatshe"],
+    "round": ["potoloha"],
+    "readText": ["balaMongolo"],
+    "writeText": ["ngolaMongolo"]
+  },
   "errors": {
     "line": "Mola {line}: {message}",
     "unknownKeyword": "Ha ke tsebe lentswe la taelo '{keyword}'.",

@@ -119,6 +119,7 @@ export function detectLanguage(source, packs) {
   for (const line of prepareLines(source)) {
     if (!line.text) continue;
     const word = firstWord(line.text);
+    const callable = line.text.match(/^([\p{L}_][\p{L}\p{N}_]*)\s*(?:\.|\()/u)?.[1];
     if (
       ["import", "let", "record"].includes(word) ||
       /^(?:print|input|len|length|push|type|toText|toNumber|random|readText|writeText|math\.)\s*\(/u.test(line.text)
@@ -126,7 +127,12 @@ export function detectLanguage(source, packs) {
       hasUniversalSyntax = true;
     }
     for (const [code, pack] of packs) {
-      if (canonical(pack, "keywords", word)) return code;
+      if (
+        canonical(pack, "keywords", word) ||
+        (callable && canonical(pack, "builtins", callable))
+      ) {
+        return code;
+      }
     }
   }
   if (hasUniversalSyntax && packs.has("en")) return "en";
@@ -667,32 +673,42 @@ function emit(context, text) {
 function createBuiltins(context) {
   const exact = (name, count, invoke) => native(name, count, count, invoke);
   const builtins = new Map();
-  builtins.set("print", native("print", 0, Infinity, (args) => {
+  const register = (canonicalName, value, fallbackAliases = []) => {
+    const names = new Set([
+      canonicalName,
+      ...fallbackAliases,
+      ...aliases(context.pack, "builtins", canonicalName),
+    ]);
+    for (const name of names) builtins.set(name, value);
+  };
+  const print = native("print", 0, Infinity, (args) => {
     emit(context, args.map((value) => display(value, context.pack)).join(" "));
     return null;
-  }));
-  builtins.set("input", native("input", 0, 1, (args, callLocation) => {
+  });
+  register("print", print);
+  const input = native("input", 0, 1, (args, callLocation) => {
     if (!context.input) fail(context.pack, "inputUnavailable", callLocation);
     return context.input(args.length ? display(args[0], context.pack) : "");
-  }));
+  });
+  register("input", input);
   const length = exact("len", 1, ([value], callLocation) => {
     if (Array.isArray(value) || typeof value === "string") return value.length;
     if (value?.kind === "record-instance") return Object.keys(value.fields).length;
     if (value && typeof value === "object" && !value.kind) return Object.keys(value).length;
     fail(context.pack, "invalidOperand", callLocation, { operator: "len" });
   });
-  builtins.set("len", length);
-  builtins.set("length", length);
-  builtins.set("push", exact("push", 2, ([array, value], callLocation) => {
+  register("len", length, ["length"]);
+  const push = exact("push", 2, ([array, value], callLocation) => {
     if (!Array.isArray(array)) {
       fail(context.pack, "invalidOperand", callLocation, { operator: "push" });
     }
     array.push(value);
     return array.length;
-  }));
-  builtins.set("type", exact("type", 1, ([value]) => valueType(value)));
-  builtins.set("toText", exact("toText", 1, ([value]) => display(value, context.pack)));
-  builtins.set("toNumber", exact("toNumber", 1, ([value], callLocation) => {
+  });
+  register("push", push);
+  register("type", exact("type", 1, ([value]) => valueType(value)));
+  register("toText", exact("toText", 1, ([value]) => display(value, context.pack)));
+  register("toNumber", exact("toNumber", 1, ([value], callLocation) => {
     if (typeof value === "number") return value;
     const converted = typeof value === "string" && value.trim() !== ""
       ? Number(value)
@@ -702,18 +718,24 @@ function createBuiltins(context) {
     }
     return converted;
   }));
-  builtins.set("random", exact("random", 0, () => context.random()));
-  builtins.set("math", {
-    floor: exact("math.floor", 1, ([value], callLocation) => {
+  register("random", exact("random", 0, () => context.random()));
+  const floor = exact("math.floor", 1, ([value], callLocation) => {
       if (!isNumber(value)) fail(context.pack, "invalidOperand", callLocation, { operator: "floor" });
       return Math.floor(value);
-    }),
-    round: exact("math.round", 1, ([value], callLocation) => {
+    });
+  const round = exact("math.round", 1, ([value], callLocation) => {
       if (!isNumber(value)) fail(context.pack, "invalidOperand", callLocation, { operator: "round" });
       return Math.round(value);
-    }),
-  });
-  builtins.set("readText", exact("readText", 1, ([filePath], callLocation) => {
+    });
+  const math = {};
+  for (const name of new Set(["floor", ...aliases(context.pack, "builtins", "floor")])) {
+    math[name] = floor;
+  }
+  for (const name of new Set(["round", ...aliases(context.pack, "builtins", "round")])) {
+    math[name] = round;
+  }
+  register("math", math);
+  register("readText", exact("readText", 1, ([filePath], callLocation) => {
     if (!context.files) fail(context.pack, "fileAccessUnavailable", callLocation);
     try {
       return context.files.readText(String(filePath));
@@ -723,7 +745,7 @@ function createBuiltins(context) {
       });
     }
   }));
-  builtins.set("writeText", exact("writeText", 2, ([filePath, text], callLocation) => {
+  register("writeText", exact("writeText", 2, ([filePath, text], callLocation) => {
     if (!context.files) fail(context.pack, "fileAccessUnavailable", callLocation);
     try {
       context.files.writeText(String(filePath), display(text, context.pack));

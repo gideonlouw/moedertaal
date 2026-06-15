@@ -95,6 +95,42 @@ writeText(path, text)
 
 `random()` returns a number from 0 up to, but not including, 1.
 
+### Localized Function Names
+
+Every standard-library function has localized aliases. English names remain
+available for compatibility, but a program may be written using its own
+language throughout.
+
+| Meaning | Afrikaans | Spanish | isiZulu | isiXhosa | Sesotho |
+| --- | --- | --- | --- | --- | --- |
+| print | `druk()` | `imprimir()` | `bonisa()` | `bonisa()` | `bontsha()` |
+| input | `invoer()` | `entrada()` | `faka()` | `faka()` | `kenya()` |
+| length | `lengte()` | `longitud()` | `ubude()` | `ubude()` | `bolelele()` |
+| push | `voegBy()` | `agregar()` | `engeza()` | `yongeza()` | `eketsa()` |
+| type | `tipe()` | `tipo()` | `uhlobo()` | `uhlobo()` | `mofuta()` |
+| to text | `naTeks()` | `aTexto()` | `kumbhalo()` | `kumbhalo()` | `hoMongolo()` |
+| to number | `naGetal()` | `aNúmero()` | `kunombolo()` | `kwinani()` | `hoNomoro()` |
+| random | `lukraak()` | `aleatorio()` | `okungahleliwe()` | `ngokungakhethiyo()` | `kaTshohanyetso()` |
+| read text | `leesTeks()` | `leerTexto()` | `fundaUmbhalo()` | `fundaUmbhalo()` | `balaMongolo()` |
+| write text | `skryfTeks()` | `escribirTexto()` | `bhalaUmbhalo()` | `bhalaUmbhalo()` | `ngolaMongolo()` |
+
+Russian and Chinese aliases are also defined in their language packs.
+Localized math namespaces work in the same way, for example:
+
+```text
+druk(wiskunde.vloer(3.9))
+druk(wiskunde.rond(3.6))
+```
+
+An Afrikaans file-reading program can be written without English function
+names:
+
+```text
+stel inhoud = leesTeks("sample.txt")
+druk("Die lêer bevat:")
+druk(inhoud)
+```
+
 ## Safe File Access
 
 Programs may only read and write inside their sandbox folder. By default, this
@@ -125,6 +161,7 @@ Run it with:
 
 ```powershell
 moed run examples/read-file.mt
+moed run examples/read-file-afrikaans.mt
 ```
 
 It calls `readText("sample.txt")` and prints the file contents.

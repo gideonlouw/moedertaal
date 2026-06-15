@@ -271,6 +271,69 @@ test("provides the safe standard library", () => {
   ]);
 });
 
+test("supports localized standard-library functions in every language", () => {
+  const packs = loadLanguagePacks();
+  const required = [
+    "print",
+    "input",
+    "len",
+    "push",
+    "type",
+    "toText",
+    "toNumber",
+    "random",
+    "math",
+    "floor",
+    "round",
+    "readText",
+    "writeText",
+  ];
+
+  for (const [language, pack] of packs) {
+    for (const name of required) {
+      assert.ok(pack.builtins[name]?.length, `${language} is missing built-in '${name}'`);
+    }
+
+    const name = (key) => pack.builtins[key][0];
+    const stored = new Map();
+    const result = run(`
+      let items = [1]
+      ${name("push")}(items, 2)
+      ${name("print")}(${name("len")}(items))
+      ${name("print")}(${name("type")}(items))
+      ${name("print")}(${name("toText")}(7))
+      ${name("print")}(${name("toNumber")}("8"))
+      ${name("print")}(${name("random")}())
+      ${name("print")}(${name("math")}.${name("floor")}(2.9))
+      ${name("print")}(${name("math")}.${name("round")}(2.6))
+      ${name("print")}(${name("input")}())
+      ${name("writeText")}("note.txt", "hello")
+      ${name("print")}(${name("readText")}("note.txt"))
+    `, {
+      language,
+      filename: `${language}-builtins.mt`,
+      random: () => 0.5,
+      input: () => "answer",
+      files: {
+        readText: (fileName) => stored.get(fileName),
+        writeText: (fileName, text) => stored.set(fileName, text),
+      },
+    });
+
+    assert.deepEqual(result.output, [
+      "2",
+      "array",
+      "7",
+      "8",
+      "0.5",
+      "2",
+      "3",
+      "answer",
+      "hello",
+    ], language);
+  }
+});
+
 test("creates records and reads fields", () => {
   const result = run(`
     record Person {
@@ -392,6 +455,7 @@ test("runs every documented example successfully", (context) => {
     ["bank-account.mt", ""],
     ["text-adventure.mt", "left\n"],
     ["read-file.mt", ""],
+    ["read-file-afrikaans.mt", ""],
   ];
 
   for (const [fileName, input] of examples) {

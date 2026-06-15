@@ -24,6 +24,21 @@
     "or": ["noma"],
     "not": ["hhayi"]
   },
+  "builtins": {
+    "print": ["bonisa"],
+    "input": ["faka"],
+    "len": ["ubude"],
+    "push": ["engeza"],
+    "type": ["uhlobo"],
+    "toText": ["kumbhalo"],
+    "toNumber": ["kunombolo"],
+    "random": ["okungahleliwe"],
+    "math": ["izibalo"],
+    "floor": ["phansi"],
+    "round": ["sondeza"],
+    "readText": ["fundaUmbhalo"],
+    "writeText": ["bhalaUmbhalo"]
+  },
   "errors": {
     "line": "Umugqa {line}: {message}",
     "unknownKeyword": "Angilazi igama eliyisihluthulelo elithi '{keyword}'.",
