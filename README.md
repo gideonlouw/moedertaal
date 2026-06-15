@@ -563,7 +563,6 @@ Moedertaal intentionally does not expose:
 - unrestricted file access
 - dynamic package installation
 - JavaScript execution
-- classes or inheritance
 
 ## Tests
 
