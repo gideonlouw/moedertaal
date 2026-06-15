@@ -1,10 +1,10 @@
 # Moedertaal
 
-Moedertaal is 'n klein, beginnersvriendelike programmeertaal met gelokaliseerde
-sleutelwoorde en funksies. Bronlêers gebruik die `.mt`-uitbreiding en
-UTF-8-kodering.
+Moedertaal is a small, beginner-friendly programming language with localized
+keywords and standard functions. Source files use the `.mt` extension and
+UTF-8 encoding.
 
-Ondersteunde tale:
+Supported languages:
 
 - Afrikaans
 - 中文
@@ -15,17 +15,19 @@ Ondersteunde tale:
 - Sesotho
 - English
 
-## Other Languages
+## Understanding the Examples
 
-**English:** The code examples below intentionally use every supported language
-except English. Run `moed languages` to list the installed languages. The
-`languages` folder contains the keywords and standard-function names for each
-language. English aliases remain available for compatibility, but are not used
-in these examples.
+The documentation is written in English so that it is accessible to a broad
+audience. The code examples intentionally use every supported language except
+English.
 
-## Installeer en Begin
+Run `moed languages` to list the installed languages. The `languages` folder
+contains the keywords and standard-function names for each language. English
+aliases remain available for compatibility, but are not used in these examples.
 
-Node.js 20 of nuwer word vereis.
+## Install and Run
+
+Node.js 20 or newer is required.
 
 ```powershell
 npm install
@@ -36,15 +38,15 @@ moed check program.mt
 moed repl
 ```
 
-- `run` voer 'n program uit.
-- `check` toets sintaksis sonder om die program uit te voer.
-- `repl` open 'n interaktiewe prompt. Tik `:exit` om te sluit.
-- `languages` wys die beskikbare tale.
+- `run` executes a program.
+- `check` checks syntax without executing the program.
+- `repl` opens an interactive prompt. Enter `:exit` to close it.
+- `languages` lists the available languages.
 
-## Eerste Program in Elke Taal
+## First Program in Every Language
 
-Elke voorbeeld skep 'n lys, voeg 'n waarde by, definieer 'n funksie en druk die
-resultate.
+Each example creates an array, adds a value, defines a function, and prints the
+results.
 
 ### Afrikaans
 
@@ -158,10 +160,9 @@ bakeng nomoro ho dinomoro
 qetella
 ```
 
-Lyste gebruik indekse wat by nul begin. Wanneer 'n kaart herhaal word, word sy
-sleutels besoek.
+Array indexes begin at zero. Iterating over a map visits its keys.
 
-## Besluite in Elke Taal
+## Decisions in Every Language
 
 ### Afrikaans
 
@@ -240,10 +241,11 @@ ho_seng_jwalo
 qetella
 ```
 
-## Rekords
+## Records
 
-`record` en `let` is tans gedeelde sintaksis wat in elke taal werk. Die
-rekordname, velde en uitvoerfunksies kan volledig gelokaliseer word.
+`record` and `let` are currently shared syntax that works in every language.
+Record names, fields, variables, and output functions can still be fully
+localized.
 
 ### Afrikaans
 
@@ -322,24 +324,24 @@ let motho = Motho("Gideon", 40)
 bontsha(motho.lebitso)
 ```
 
-Rekords is eenvoudige datawaardes sonder oorerwing of klasse.
+Records are simple data values without classes or inheritance.
 
-## Standaardfunksies
+## Standard Functions
 
-| Betekenis | Afrikaans | 中文 | Русский | Español | isiZulu | isiXhosa | Sesotho |
+| Meaning | Afrikaans | 中文 | Русский | Español | isiZulu | isiXhosa | Sesotho |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| druk | `druk()` | `打印()` | `вывести()` | `imprimir()` | `bonisa()` | `bonisa()` | `bontsha()` |
-| invoer | `invoer()` | `输入()` | `ввод()` | `entrada()` | `faka()` | `faka()` | `kenya()` |
-| lengte | `lengte()` | `长度()` | `длина()` | `longitud()` | `ubude()` | `ubude()` | `bolelele()` |
-| voeg by | `voegBy()` | `添加()` | `добавить()` | `agregar()` | `engeza()` | `yongeza()` | `eketsa()` |
-| tipe | `tipe()` | `类型()` | `тип()` | `tipo()` | `uhlobo()` | `uhlobo()` | `mofuta()` |
-| na teks | `naTeks()` | `转文本()` | `вТекст()` | `aTexto()` | `kumbhalo()` | `kumbhalo()` | `hoMongolo()` |
-| na getal | `naGetal()` | `转数字()` | `вЧисло()` | `aNúmero()` | `kunombolo()` | `kwinani()` | `hoNomoro()` |
-| lukraak | `lukraak()` | `随机()` | `случайное()` | `aleatorio()` | `okungahleliwe()` | `ngokungakhethiyo()` | `kaTshohanyetso()` |
-| lees teks | `leesTeks()` | `读取文本()` | `читатьТекст()` | `leerTexto()` | `fundaUmbhalo()` | `fundaUmbhalo()` | `balaMongolo()` |
-| skryf teks | `skryfTeks()` | `写入文本()` | `писатьТекст()` | `escribirTexto()` | `bhalaUmbhalo()` | `bhalaUmbhalo()` | `ngolaMongolo()` |
+| print | `druk()` | `打印()` | `вывести()` | `imprimir()` | `bonisa()` | `bonisa()` | `bontsha()` |
+| input | `invoer()` | `输入()` | `ввод()` | `entrada()` | `faka()` | `faka()` | `kenya()` |
+| length | `lengte()` | `长度()` | `длина()` | `longitud()` | `ubude()` | `ubude()` | `bolelele()` |
+| append | `voegBy()` | `添加()` | `добавить()` | `agregar()` | `engeza()` | `yongeza()` | `eketsa()` |
+| type | `tipe()` | `类型()` | `тип()` | `tipo()` | `uhlobo()` | `uhlobo()` | `mofuta()` |
+| to text | `naTeks()` | `转文本()` | `вТекст()` | `aTexto()` | `kumbhalo()` | `kumbhalo()` | `hoMongolo()` |
+| to number | `naGetal()` | `转数字()` | `вЧисло()` | `aNúmero()` | `kunombolo()` | `kwinani()` | `hoNomoro()` |
+| random | `lukraak()` | `随机()` | `случайное()` | `aleatorio()` | `okungahleliwe()` | `ngokungakhethiyo()` | `kaTshohanyetso()` |
+| read text | `leesTeks()` | `读取文本()` | `читатьТекст()` | `leerTexto()` | `fundaUmbhalo()` | `fundaUmbhalo()` | `balaMongolo()` |
+| write text | `skryfTeks()` | `写入文本()` | `писатьТекст()` | `escribirTexto()` | `bhalaUmbhalo()` | `bhalaUmbhalo()` | `ngolaMongolo()` |
 
-### Wiskundige Funksies
+### Mathematical Functions
 
 ```text
 # Afrikaans
@@ -371,12 +373,13 @@ bontsha(dipalo.fatshe(3.9))
 bontsha(dipalo.potoloha(3.6))
 ```
 
-Die lukraakfunksies gee 'n getal vanaf nul tot net onder een.
+The localized random functions return a number from zero up to, but not
+including, one.
 
-## Veilige Lêertoegang
+## Safe File Access
 
-Programme mag slegs binne hul `sandbox`-gids lees en skryf. Absolute paaie en
-ouergidspaaie soos `../secret.txt` word geblokkeer.
+Programs may only read and write inside their `sandbox` folder. Absolute paths
+and parent-folder paths such as `../secret.txt` are blocked.
 
 ### Afrikaans
 
@@ -434,7 +437,7 @@ beha dikahare = balaMongolo("dinoutu.txt")
 bontsha(dikahare)
 ```
 
-Gebruik 'n pasgemaakte sandbox:
+Use a custom sandbox:
 
 ```powershell
 moed run program.mt --sandbox C:\MySafeFolder
@@ -442,8 +445,8 @@ moed run program.mt --sandbox C:\MySafeFolder
 
 ## Modules
 
-`import` is gedeelde sintaksis. Dit laai funksies en rekords uit 'n ander
-`.mt`-lêer. Hier is die hoofprogram in elke nie-Engelse taal:
+`import` is shared syntax. It loads functions and records from another `.mt`
+file. These are equivalent main programs in every non-English language:
 
 ### Afrikaans
 
@@ -494,12 +497,12 @@ import "dipalo"
 bontsha(habedi(6))
 ```
 
-Modules laai een keer, moduleveranderlikes bly privaat en sirkelinvoere word
-geblokkeer.
+Modules load once, module variables stay private, and circular imports are
+blocked.
 
-## Foute
+## Errors
 
-Foute wys die lêernaam, reël, kolom en 'n gelokaliseerde boodskap:
+Errors show the filename, line, column, and a localized message:
 
 ```text
 # Afrikaans
@@ -524,7 +527,7 @@ C:\inkqubo\impazamo.mt:3:18: Bendilindele ']'.
 C:\projeke\phoso.mt:3:18: Ke ne ke lebeletse ']'.
 ```
 
-## Voorbeeldprogramme
+## Example Programs
 
 ```powershell
 moed run examples/afrikaans-v02.mt
@@ -537,42 +540,43 @@ moed run examples/sesotho-v02.mt
 moed run examples/read-file-afrikaans.mt
 ```
 
-## Blaaier-speelgrond
+## Browser Playground
 
 ```powershell
 node playground/server.js
 ```
 
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080). Sleutelbordinvoer,
-modules en lêertoegang gebruik die opdragreël.
+Open [http://127.0.0.1:8080](http://127.0.0.1:8080). Keyboard input, modules,
+and file access require the command-line runner.
 
 ## Visual Studio Code
 
-Die uitbreiding in `editor/moedertaal-vscode` bied `.mt`-lêerherkenning,
-sintaksisverligting en dokumentformatering.
+The extension in `editor/moedertaal-vscode` provides `.mt` file recognition,
+syntax highlighting, and document formatting.
 
-## Veiligheid
+## Security
 
-Moedertaal gee doelbewus nie toegang tot die volgende nie:
+Moedertaal intentionally does not expose:
 
-- netwerke
-- dopopdragte of prosesuitvoering
-- onbeperkte lêertoegang
-- dinamiese pakketinstallasie
-- JavaScript-uitvoering
+- networking
+- shell commands or process execution
+- unrestricted file access
+- dynamic package installation
+- JavaScript execution
+- classes or inheritance
 
-## Toetse
+## Tests
 
 ```powershell
 node --test
 ```
 
-## Voeg 'n Taal By
+## Adding a Language
 
-Taalpakke is JSON-lêers in `languages`. Gebruik `languages/en.json` as tegniese
-verwysing, voeg 'n voorbeeld en toets by, en laat 'n vlot spreker die vertaling
-nagaan.
+Language packs are JSON files in `languages`. Use `languages/en.json` as a
+technical reference, add an example and test, and ask a fluent speaker to
+review the translation.
 
-## Lisensie
+## License
 
-Moedertaal is beskikbaar onder die [MIT License](LICENSE).
+Moedertaal is available under the [MIT License](LICENSE).
