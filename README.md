@@ -1,103 +1,172 @@
 # Moedertaal
 
 Moedertaal is 'n klein, beginnersvriendelike programmeertaal met gelokaliseerde
-sleutelwoorde en funksies. Dit ondersteun tans Afrikaans, English, Chinese,
-Russian, Spanish, isiZulu, isiXhosa en Sesotho. Bronlêers gebruik die `.mt`
-uitbreiding en UTF-8-kodering.
+sleutelwoorde en funksies. Bronlêers gebruik die `.mt`-uitbreiding en
+UTF-8-kodering.
+
+Ondersteunde tale:
+
+- Afrikaans
+- 中文
+- Русский
+- Español
+- isiZulu
+- isiXhosa
+- Sesotho
+- English
 
 ## Other Languages
 
-**English:** The examples below are shown in Afrikaans, isiZulu, and Chinese.
-If you do not understand these languages, run
-`moed languages` to see the available languages. Look in the `languages`
-folder for the keywords and function names in your language. English names
-remain available for compatibility. New translations are welcome; use
-`languages/en.json` as the reference when adding your own language.
+**English:** The code examples below intentionally use every supported language
+except English. Run `moed languages` to list the installed languages. The
+`languages` folder contains the keywords and standard-function names for each
+language. English aliases remain available for compatibility, but are not used
+in these examples.
 
-## Installeer en Begin / Faka bese Uqalisa
+## Installeer en Begin
 
 Node.js 20 of nuwer word vereis.
 
 ```powershell
 npm install
 npm link
-moed run examples/calculator.mt
-```
-
-Die opdragreël gebruik:
-
-```text
-moed run file.mt
-moed check file.mt
-moed repl
 moed languages
+moed run program.mt
+moed check program.mt
+moed repl
 ```
 
 - `run` voer 'n program uit.
-- `check` toets die sintaksis sonder om die program uit te voer.
-- `repl` open 'n interaktiewe Moedertaal-prompt. Tik `:exit` om te sluit.
-- `languages` wys al die beskikbare tale.
+- `check` toets sintaksis sonder om die program uit te voer.
+- `repl` open 'n interaktiewe prompt. Tik `:exit` om te sluit.
+- `languages` wys die beskikbare tale.
 
-## Veranderlikes en Versamelings / Okuguqukayo Neziqoqo
+## Eerste Program in Elke Taal
+
+Elke voorbeeld skep 'n lys, voeg 'n waarde by, definieer 'n funksie en druk die
+resultate.
 
 ### Afrikaans
 
 ```text
 stel nommers = [1, 2, 3]
-stel gebruiker = { naam: "Gideon", ouderdom: 40 }
-
-druk(nommers[0])
-druk(gebruiker["naam"])
-druk(lengte(nommers))
-
 voegBy(nommers, 4)
-vir nommer in nommers
-  druk(nommer)
+
+funksie verdubbel(getal)
+  gee getal * 2
 einde
+
+druk("Lengte:", lengte(nommers))
+vir nommer in nommers
+  druk(verdubbel(nommer))
+einde
+```
+
+### 中文
+
+```text
+设置 数字 = [1, 2, 3]
+添加(数字, 4)
+
+函数 双倍(数字值)
+  返回 数字值 * 2
+结束
+
+打印("长度：", 长度(数字))
+对于 数 在 数字
+  打印(双倍(数))
+结束
+```
+
+### Русский
+
+```text
+задать числа = [1, 2, 3]
+добавить(числа, 4)
+
+функция удвоить(число)
+  вернуть число * 2
+конец
+
+вывести("Длина:", длина(числа))
+для число в числа
+  вывести(удвоить(число))
+конец
+```
+
+### Español
+
+```text
+asigna números = [1, 2, 3]
+agregar(números, 4)
+
+función duplicar(número)
+  devuelve número * 2
+fin
+
+imprimir("Longitud:", longitud(números))
+para número en números
+  imprimir(duplicar(número))
+fin
 ```
 
 ### isiZulu
 
 ```text
 beka izinombolo = [1, 2, 3]
-beka umsebenzisi = { igama: "Gideon", iminyaka: 40 }
-
-bonisa(izinombolo[0])
-bonisa(umsebenzisi["igama"])
-bonisa(ubude(izinombolo))
-
 engeza(izinombolo, 4)
+
+umsebenzi phinda_kabili(inombolo)
+  buyisa inombolo * 2
+qeda
+
+bonisa("Ubude:", ubude(izinombolo))
 ngayinye inombolo ku izinombolo
-  bonisa(inombolo)
+  bonisa(phinda_kabili(inombolo))
 qeda
 ```
 
-### Chinese / 中文
+### isiXhosa
 
 ```text
-设置 数字 = [1, 2, 3]
-设置 用户 = { 名字: "Gideon", 年龄: 40 }
+misela amanani = [1, 2, 3]
+yongeza(amanani, 4)
 
-打印(数字[0])
-打印(用户["名字"])
-打印(长度(数字))
+umsebenzi phinda_kabini(inani)
+  buyisa inani * 2
+gqiba
 
-添加(数字, 4)
-对于 数 在 数字
-  打印(数)
-结束
+bonisa("Ubude:", ubude(amanani))
+nganye inani kwi amanani
+  bonisa(phinda_kabini(inani))
+gqiba
 ```
 
-Lyste gebruik indekse wat by nul begin. Wanneer 'n kaart herhaal word, word
-sy sleutels besoek.
+### Sesotho
 
-## Besluite / Izinqumo
+```text
+beha dinomoro = [1, 2, 3]
+eketsa(dinomoro, 4)
+
+tshebetso habedi(nomoro)
+  kgutlisa nomoro * 2
+qetella
+
+bontsha("Bolelele:", bolelele(dinomoro))
+bakeng nomoro ho dinomoro
+  bontsha(habedi(nomoro))
+qetella
+```
+
+Lyste gebruik indekse wat by nul begin. Wanneer 'n kaart herhaal word, word sy
+sleutels besoek.
+
+## Besluite in Elke Taal
 
 ### Afrikaans
 
 ```text
 stel ouderdom = 17
-
 as ouderdom >= 18
   druk("Volwassene")
 anders
@@ -105,23 +174,10 @@ anders
 einde
 ```
 
-### isiZulu
-
-```text
-beka iminyaka = 17
-
-uma iminyaka >= 18
-  bonisa("Umuntu omdala")
-kungenjalo
-  bonisa("Hhayi okwamanje")
-qeda
-```
-
-### Chinese / 中文
+### 中文
 
 ```text
 设置 年龄 = 17
-
 如果 年龄 >= 18
   打印("成年人")
 否则
@@ -129,41 +185,65 @@ qeda
 结束
 ```
 
-## Funksies / Imisebenzi
-
-### Afrikaans
+### Русский
 
 ```text
-funksie verdubbel(getal)
-  gee getal * 2
-einde
+задать возраст = 17
+если возраст >= 18
+  вывести("Совершеннолетний")
+иначе
+  вывести("Ещё нет")
+конец
+```
 
-druk(verdubbel(5))
+### Español
+
+```text
+asigna edad = 17
+si edad >= 18
+  imprimir("Adulto")
+sino
+  imprimir("Todavía no")
+fin
 ```
 
 ### isiZulu
 
 ```text
-umsebenzi phinda_kabili(inombolo)
-  buyisa inombolo * 2
+beka iminyaka = 17
+uma iminyaka >= 18
+  bonisa("Umuntu omdala")
+kungenjalo
+  bonisa("Hhayi okwamanje")
 qeda
-
-bonisa(phinda_kabili(5))
 ```
 
-### Chinese / 中文
+### isiXhosa
 
 ```text
-函数 双倍(数字)
-  返回 数字 * 2
-结束
-
-打印(双倍(5))
+misela iminyaka = 17
+ukuba iminyaka >= 18
+  bonisa("Umntu omdala")
+kungenjalo
+  bonisa("Hayi okwangoku")
+gqiba
 ```
 
-## Rekords / Amarekhodi
+### Sesotho
 
-`record` en `let` is tans gedeelde sintaksis wat in elke taal werk.
+```text
+beha dilemo = 17
+haeba dilemo >= 18
+  bontsha("Motho e moholo")
+ho_seng_jwalo
+  bontsha("Ha e so be jwalo")
+qetella
+```
+
+## Rekords
+
+`record` en `let` is tans gedeelde sintaksis wat in elke taal werk. Die
+rekordname, velde en uitvoerfunksies kan volledig gelokaliseer word.
 
 ### Afrikaans
 
@@ -172,10 +252,41 @@ record Persoon {
   naam
   ouderdom
 }
-
 let persoon = Persoon("Gideon", 40)
 druk(persoon.naam)
-druk(persoon.ouderdom)
+```
+
+### 中文
+
+```text
+record 人 {
+  名字
+  年龄
+}
+let 用户 = 人("Gideon", 40)
+打印(用户.名字)
+```
+
+### Русский
+
+```text
+record Человек {
+  имя
+  возраст
+}
+let человек = Человек("Gideon", 40)
+вывести(человек.имя)
+```
+
+### Español
+
+```text
+record Persona {
+  nombre
+  edad
+}
+let persona = Persona("Gideon", 40)
+imprimir(persona.nombre)
 ```
 
 ### isiZulu
@@ -185,93 +296,118 @@ record Umuntu {
   igama
   iminyaka
 }
-
 let umuntu = Umuntu("Gideon", 40)
 bonisa(umuntu.igama)
-bonisa(umuntu.iminyaka)
 ```
 
-### Chinese / 中文
+### isiXhosa
 
 ```text
-record 人 {
-  名字
-  年龄
+record Umntu {
+  igama
+  iminyaka
 }
-
-let 用户 = 人("Gideon", 40)
-打印(用户.名字)
-打印(用户.年龄)
+let umntu = Umntu("Gideon", 40)
+bonisa(umntu.igama)
 ```
 
-Rekords is eenvoudige datawaardes. Hulle het nie oorerwing, metodes of
-versteekte konstruktors nie.
-
-## Standaardfunksies / Imisebenzi Ejwayelekile
-
-| Betekenis / Meaning | Afrikaans | isiZulu | Chinese / 中文 |
-| --- | --- | --- | --- |
-| druk / print | `druk()` | `bonisa()` | `打印()` |
-| invoer / input | `invoer()` | `faka()` | `输入()` |
-| lengte / length | `lengte()` | `ubude()` | `长度()` |
-| voeg by / push | `voegBy()` | `engeza()` | `添加()` |
-| tipe / type | `tipe()` | `uhlobo()` | `类型()` |
-| na teks / to text | `naTeks()` | `kumbhalo()` | `转文本()` |
-| na getal / to number | `naGetal()` | `kunombolo()` | `转数字()` |
-| lukraak / random | `lukraak()` | `okungahleliwe()` | `随机()` |
-| lees teks / read text | `leesTeks()` | `fundaUmbhalo()` | `读取文本()` |
-| skryf teks / write text | `skryfTeks()` | `bhalaUmbhalo()` | `写入文本()` |
-
-### Afrikaans
+### Sesotho
 
 ```text
-stel naam = invoer("Wat is jou naam? ")
-druk("Hallo " + naam)
-druk(naGetal("12") + 3)
-druk(tipe([1, 2, 3]))
+record Motho {
+  lebitso
+  dilemo
+}
+let motho = Motho("Gideon", 40)
+bontsha(motho.lebitso)
+```
+
+Rekords is eenvoudige datawaardes sonder oorerwing of klasse.
+
+## Standaardfunksies
+
+| Betekenis | Afrikaans | 中文 | Русский | Español | isiZulu | isiXhosa | Sesotho |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| druk | `druk()` | `打印()` | `вывести()` | `imprimir()` | `bonisa()` | `bonisa()` | `bontsha()` |
+| invoer | `invoer()` | `输入()` | `ввод()` | `entrada()` | `faka()` | `faka()` | `kenya()` |
+| lengte | `lengte()` | `长度()` | `длина()` | `longitud()` | `ubude()` | `ubude()` | `bolelele()` |
+| voeg by | `voegBy()` | `添加()` | `добавить()` | `agregar()` | `engeza()` | `yongeza()` | `eketsa()` |
+| tipe | `tipe()` | `类型()` | `тип()` | `tipo()` | `uhlobo()` | `uhlobo()` | `mofuta()` |
+| na teks | `naTeks()` | `转文本()` | `вТекст()` | `aTexto()` | `kumbhalo()` | `kumbhalo()` | `hoMongolo()` |
+| na getal | `naGetal()` | `转数字()` | `вЧисло()` | `aNúmero()` | `kunombolo()` | `kwinani()` | `hoNomoro()` |
+| lukraak | `lukraak()` | `随机()` | `случайное()` | `aleatorio()` | `okungahleliwe()` | `ngokungakhethiyo()` | `kaTshohanyetso()` |
+| lees teks | `leesTeks()` | `读取文本()` | `читатьТекст()` | `leerTexto()` | `fundaUmbhalo()` | `fundaUmbhalo()` | `balaMongolo()` |
+| skryf teks | `skryfTeks()` | `写入文本()` | `писатьТекст()` | `escribirTexto()` | `bhalaUmbhalo()` | `bhalaUmbhalo()` | `ngolaMongolo()` |
+
+### Wiskundige Funksies
+
+```text
+# Afrikaans
 druk(wiskunde.vloer(3.9))
 druk(wiskunde.rond(3.6))
-druk(lukraak())
-```
 
-### isiZulu
-
-```text
-beka igama = faka("Ngubani igama lakho? ")
-bonisa("Sawubona " + igama)
-bonisa(kunombolo("12") + 3)
-bonisa(uhlobo([1, 2, 3]))
-bonisa(izibalo.phansi(3.9))
-bonisa(izibalo.sondeza(3.6))
-bonisa(okungahleliwe())
-```
-
-### Chinese / 中文
-
-```text
-设置 名字 = 输入("你叫什么名字？")
-打印("你好，" + 名字)
-打印(转数字("12") + 3)
-打印(类型([1, 2, 3]))
+# 中文
 打印(数学.向下取整(3.9))
 打印(数学.四舍五入(3.6))
-打印(随机())
+
+# Русский
+вывести(математика.пол(3.9))
+вывести(математика.округлить(3.6))
+
+# Español
+imprimir(matemáticas.piso(3.9))
+imprimir(matemáticas.redondear(3.6))
+
+# isiZulu
+bonisa(izibalo.phansi(3.9))
+bonisa(izibalo.sondeza(3.6))
+
+# isiXhosa
+bonisa(izibalo.ezantsi(3.9))
+bonisa(izibalo.sondeza(3.6))
+
+# Sesotho
+bontsha(dipalo.fatshe(3.9))
+bontsha(dipalo.potoloha(3.6))
 ```
 
-Die lukraakfunksie gee 'n getal vanaf nul tot net onder een.
+Die lukraakfunksies gee 'n getal vanaf nul tot net onder een.
 
-## Veilige Lêertoegang / Ukufinyelela Amafayela Ngokuphepha
+## Veilige Lêertoegang
 
-Programme mag slegs binne hul `sandbox`-gids lees en skryf. Die gids is
-standaard langs die `.mt`-program.
+Programme mag slegs binne hul `sandbox`-gids lees en skryf. Absolute paaie en
+ouergidspaaie soos `../secret.txt` word geblokkeer.
 
 ### Afrikaans
 
 ```text
 skryfTeks("notas.txt", "Hallo vanuit Moedertaal")
 stel inhoud = leesTeks("notas.txt")
-druk("Die lêer bevat:")
 druk(inhoud)
+```
+
+### 中文
+
+```text
+写入文本("笔记.txt", "你好，Moedertaal")
+设置 内容 = 读取文本("笔记.txt")
+打印(内容)
+```
+
+### Русский
+
+```text
+писатьТекст("заметки.txt", "Привет из Moedertaal")
+задать содержимое = читатьТекст("заметки.txt")
+вывести(содержимое)
+```
+
+### Español
+
+```text
+escribirTexto("notas.txt", "Hola desde Moedertaal")
+asigna contenido = leerTexto("notas.txt")
+imprimir(contenido)
 ```
 
 ### isiZulu
@@ -279,152 +415,143 @@ druk(inhoud)
 ```text
 bhalaUmbhalo("amanothi.txt", "Sawubona kusuka ku-Moedertaal")
 beka okuqukethwe = fundaUmbhalo("amanothi.txt")
-bonisa("Ifayela liqukethe:")
 bonisa(okuqukethwe)
 ```
 
-### Chinese / 中文
+### isiXhosa
 
 ```text
-写入文本("笔记.txt", "你好，Moedertaal")
-设置 内容 = 读取文本("笔记.txt")
-打印("文件内容：")
-打印(内容)
+bhalaUmbhalo("amanqaku.txt", "Molo kwi-Moedertaal")
+misela umxholo = fundaUmbhalo("amanqaku.txt")
+bonisa(umxholo)
 ```
 
-Absolute paaie en ouergidspaaie soos `../secret.txt` word geblokkeer.
+### Sesotho
+
+```text
+ngolaMongolo("dinoutu.txt", "Dumela ho tswa Moedertaal")
+beha dikahare = balaMongolo("dinoutu.txt")
+bontsha(dikahare)
+```
+
+Gebruik 'n pasgemaakte sandbox:
 
 ```powershell
 moed run program.mt --sandbox C:\MySafeFolder
 ```
 
-Die lêerleesvoorbeeld gebruik:
+## Modules
 
-```text
-examples/
-  read-file-afrikaans.mt
-  sandbox/
-    sample.txt
-```
-
-```powershell
-moed run examples/read-file-afrikaans.mt
-```
-
-## Modules / Amamojuli
-
-`import` is tans gedeelde sintaksis. Dit laai funksies en rekords uit 'n ander
-`.mt`-lêer.
+`import` is gedeelde sintaksis. Dit laai funksies en rekords uit 'n ander
+`.mt`-lêer. Hier is die hoofprogram in elke nie-Engelse taal:
 
 ### Afrikaans
-
-`wiskunde.mt`:
-
-```text
-funksie verdubbel(getal)
-  gee getal * 2
-einde
-```
-
-Hoofprogram:
 
 ```text
 import "wiskunde"
 druk(verdubbel(6))
 ```
 
-### isiZulu
-
-`izibalo.mt`:
-
-```text
-umsebenzi phinda_kabili(inombolo)
-  buyisa inombolo * 2
-qeda
-```
-
-Uhlelo olukhulu:
-
-```text
-import "izibalo"
-bonisa(phinda_kabili(6))
-```
-
-### Chinese / 中文
-
-`数学工具.mt`:
-
-```text
-函数 双倍(数字)
-  返回 数字 * 2
-结束
-```
-
-主程序:
+### 中文
 
 ```text
 import "数学工具"
 打印(双倍(6))
 ```
 
-`import "wiskunde"` soek `wiskunde.mt` langs die program. Relatiewe paaie soos
-`import "./tools/helpers.mt"` word ook ondersteun. Modules laai net een keer,
-moduleveranderlikes bly privaat en sirkelinvoere word geblokkeer.
-
-## Foute / Amaphutha
-
-Sintaksis- en looptydfoute wys die lêernaam, reël, kolom en 'n nuttige boodskap.
-
-### Afrikaans
+### Русский
 
 ```text
-C:\projek\gebreek.mt:3:18: Ek het ']' verwag.
+import "математика"
+вывести(удвоить(6))
+```
+
+### Español
+
+```text
+import "matemáticas"
+imprimir(duplicar(6))
 ```
 
 ### isiZulu
 
 ```text
-C:\uhlelo\iphutha.mt:3:18: Bengilindele ']'.
+import "izibalo"
+bonisa(phinda_kabili(6))
 ```
 
-### Chinese / 中文
+### isiXhosa
 
 ```text
-C:\项目\错误.mt:3:18: 这里需要']'。
+import "izibalo"
+bonisa(phinda_kabini(6))
 ```
 
-## Voorbeeldprogramme / Izinhlelo Zezibonelo
+### Sesotho
+
+```text
+import "dipalo"
+bontsha(habedi(6))
+```
+
+Modules laai een keer, moduleveranderlikes bly privaat en sirkelinvoere word
+geblokkeer.
+
+## Foute
+
+Foute wys die lêernaam, reël, kolom en 'n gelokaliseerde boodskap:
+
+```text
+# Afrikaans
+C:\projek\gebreek.mt:3:18: Ek het ']' verwag.
+
+# 中文
+C:\项目\错误.mt:3:18: 这里需要']'。
+
+# Русский
+C:\проект\ошибка.mt:3:18: Ожидалось: ']'.
+
+# Español
+C:\proyecto\error.mt:3:18: Esperaba ']'.
+
+# isiZulu
+C:\uhlelo\iphutha.mt:3:18: Bengilindele ']'.
+
+# isiXhosa
+C:\inkqubo\impazamo.mt:3:18: Bendilindele ']'.
+
+# Sesotho
+C:\projeke\phoso.mt:3:18: Ke ne ke lebeletse ']'.
+```
+
+## Voorbeeldprogramme
 
 ```powershell
-moed run examples/calculator.mt
-moed run examples/guess-number.mt
-moed run examples/todo-list.mt
-moed run examples/bank-account.mt
-moed run examples/text-adventure.mt
+moed run examples/afrikaans-v02.mt
+moed run examples/chinese-v02.mt
+moed run examples/russian-v02.mt
+moed run examples/spanish-v02.mt
+moed run examples/zulu-v02.mt
+moed run examples/xhosa-v02.mt
+moed run examples/sesotho-v02.mt
 moed run examples/read-file-afrikaans.mt
 ```
 
-Die sakrekenaar, raaispeletjie en teksavontuur vra sleutelbordinvoer. Die
-taaklys wys lyste, herhaling, byvoeging en veilige lêerskryf. Die bankrekening
-wys rekords.
-
-## Blaaier-speelgrond / Indawo Yokuzama Esipheqululini
+## Blaaier-speelgrond
 
 ```powershell
 node playground/server.js
 ```
 
-Open [http://127.0.0.1:8080](http://127.0.0.1:8080). Die speelgrond ondersteun
-gelokaliseerde sintaksis, versamelings, rekords en veilige funksies wat nie
-gasheertoegang benodig nie. Sleutelbordinvoer, modules en lêertoegang gebruik
-die opdragreël.
+Open [http://127.0.0.1:8080](http://127.0.0.1:8080). Sleutelbordinvoer,
+modules en lêertoegang gebruik die opdragreël.
 
 ## Visual Studio Code
 
-Die uitbreiding is in `editor/moedertaal-vscode`. Dit bied `.mt`-lêerherkenning,
+Die uitbreiding in `editor/moedertaal-vscode` bied `.mt`-lêerherkenning,
 sintaksisverligting en dokumentformatering.
 
-## Veiligheid / Ukuphepha
+## Veiligheid
 
 Moedertaal gee doelbewus nie toegang tot die volgende nie:
 
@@ -435,18 +562,18 @@ Moedertaal gee doelbewus nie toegang tot die volgende nie:
 - JavaScript-uitvoering
 - klasse of oorerwing
 
-## Toetse / Ukuhlola
+## Toetse
 
 ```powershell
 node --test
 ```
 
-## Voeg 'n Taal By / Engeza Ulimi
+## Voeg 'n Taal By
 
-Taalpakke is JSON-lêers in `languages`. Gebruik `languages/en.json` as
-verwysing en voeg 'n voorbeeld en toets by. Vertalings moet deur 'n vlot
-spreker nagegaan word en natuurlik klink wanneer dit hardop gelees word.
+Taalpakke is JSON-lêers in `languages`. Gebruik `languages/en.json` as tegniese
+verwysing, voeg 'n voorbeeld en toets by, en laat 'n vlot spreker die vertaling
+nagaan.
 
-## Lisensie / Ilayisense
+## Lisensie
 
 Moedertaal is beskikbaar onder die [MIT License](LICENSE).
