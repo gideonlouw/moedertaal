@@ -229,7 +229,6 @@ Moedertaal intentionally does not expose:
 - unrestricted filesystem access
 - dynamic package installation
 - JavaScript evaluation
-- classes or inheritance
 
 ## Tests
 
